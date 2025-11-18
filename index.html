@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayush Studio — Creative Studio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- 🌐 Navigation -->
+            <nav class="navbar">
+                <div class="container nav-container">
+                    <div class="brand">LOGO</div>
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Studio</a></li>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- 🦋 Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="word">Sound</span>
+                        <span class="word">Vision</span>
+                        <span class="word accent" id="emotion-word">Emotion!</span>
+                    </h1>
+
+                    <p class="hero-sub">A creative media studio shaping stories through film, music, and motion.</p>
+                </div>
+            </section>
+
+
+            <!-- 💡 Services Section -->
+            <section class="services">
+                <div class="container">
+                    <h2 class="section-title">Things We Do</h2>
+                    <div class="service-list">
+                        <div class="service service-music">
+                            <h3>Music</h3>
+                            <p>Professional recording, arrangement, mixing, and mastering to craft and polish your
+                                signature, radio-ready sound.</p>
+                        </div>
+
+                        <div class="service service-video">
+                            <h3>Video</h3>
+                            <p>We create stunning visual narratives, from music videos to live sessions, that capture
+                                your story and amplify your presence.</p>
+                        </div>
+
+                        <div class="service service-academy">
+                            <h3>Academy</h3>
+                            <p>Expert-led training and workshops in audio engineering, production, and artist
+                                development for aspiring industry talents.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 🧱 Projects Section -->
+            <section class="projects">
+                <div class="container">
+                    <h2 class="section-title">Recent Projects</h2>
+                    <div class="project-grid">
+                        <div class="project">
+                            <img src="project1.jpg" alt="Project 1"
+                                onclick="window.open('https://youtu.be/GQ-6ArA3EWg?si=vjHDhR4VC5w66Ejr','_blank')">
+                            <div class="project-info">
+                                <h3>O Maa Tomar Agomon | Saini Ghosh</h3>
+                                <br>
+                                <p>We meticulously crafted the song's entire soundscape, from musical direction and
+                                    arrangement to final production. All Lead and Chorus Vocals were professionally
+                                    recorded right here in our studio. We then expertly handled the Mixing and
+                                    Mastering, ensuring every element was balanced and polished for a broadcast-ready
+                                    release.</p>
+                            </div>
+                        </div>
+                        <div class="project">
+                            <img src="project2.jpg" alt="Project 2"
+                                onclick="window.open('https://youtu.be/_8N921ZDygQ?si=eLvgTAQYN0499Zvh','_blank')">
+                            <div class="project-info">
+                                <h3>Tomar Agomone | Abritte Talukdar</h3>
+                                <br>
+                                <p>We oversaw the full artistic and technical production of this project. On the audio
+                                    side, we handled all Arrangements, meticulously shaping the sound, and then
+                                    completed the final Mixing and Mastering for a polished finish. Visually, we
+                                    captured the performance through expert Cinematography and ensured the artist was
+                                    ready for the screen with professional Make-Up services.</p>
+                            </div>
+                        </div>
+                        <div class="project">
+                            <img src="project3.jpg" alt="Project 3"
+                                onclick="window.open('https://youtu.be/bYmKvwQTcUA?si=ovdZ6VFpunvjtILg','_blank')">
+                            <div class="project-info">
+                                <h3>Phire Ashar Gaan | Ishika Saha</h3>
+                                <br>
+                                <p>We contributed the Keys (instrumental performance) that formed a core part of the
+                                    song's musical structure. We then took full responsibility for the post-production,
+                                    expertly Mixing and Mastering the track to achieve a balanced, professional, and
+                                    commercially ready sound.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 📞 Contact Section -->
+            <section class="contact">
+                <div class="container contact-inner">
+                    <h2>Crafting sonic narratives and visual symphonies.<br> Let's turn your vision into undeniable art.
+                    </h2>
+                    <a href="mailto:hi@tunnel.studio" class="cta-btn">ayush.studio@gmail.com</a>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank">Youtube</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!--Smooth scrolling-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"
+        integrity="sha512-t4hwZimhnCKT3YLAsEcAcRDkngVFfCcUIfNLIjklrIZAZKD+GfQMP7HbRcsVHxNS48WRBSywNU1uSM2zzLQt1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ⚙️ Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

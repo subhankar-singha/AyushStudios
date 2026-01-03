@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio — Ayush Studio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        /* Studio Hero Styles */
+        .studio-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .studio-quote {
+            font-size: 5.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+
+        .quote-sub {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .quote-tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Director Section */
+        .director-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+            color: #fff;
+        }
+
+        .director-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .director-image .image-placeholder {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(198, 60, 81, 0.3);
+        }
+
+        .director-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #C63C51;
+            font-weight: 600;
+        }
+
+        .director-bio p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #ddd;
+        }
+
+        .director-bio strong {
+            color: #C63C51;
+        }
+
+        .director-highlights {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #333;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #C63C51;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 100px 0;
+            background: #f9f9f9;
+            overflow: hidden;
+        }
+
+        .reviews-subtitle {
+            text-align: center;
+            color: #757575;
+            font-size: 1.1rem;
+            margin-top: -2rem;
+            margin-bottom: 4rem;
+        }
+
+        .reviews-marquee {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 2rem;
+            animation: scroll-left 40s linear infinite;
+            will-change: transform;
+        }
+
+        .reviews-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .review-card {
+            min-width: 380px;
+            max-width: 380px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(198, 60, 81, 0.15);
+        }
+
+        .stars {
+            font-size: 1.5rem;
+            color: #FFB800;
+            letter-spacing: 4px;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #333;
+            font-style: italic;
+            flex-grow: 1;
+        }
+
+        .reviewer {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .reviewer strong {
+            font-size: 1.1rem;
+            color: #111;
+        }
+
+        .reviewer span {
+            font-size: 0.9rem;
+            color: #757575;
+        }
+
+        /* Mobile adjustment */
+        @media (max-width: 768px) {
+            .studio-quote {
+                font-size: 3rem;
+            }
+
+            .director-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .director-highlights {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .review-card {
+                min-width: 300px;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <nav class="navbar">
+                <div class="container nav-container">
+                    <div class="brand">LOGO</div>
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="./studio.html" class="active">Studio</a></li>
+                        <li><a href="../work.html">Work</a></li>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <section class="page-hero studio-hero">
+                <div class="studio-quotes">
+                    <h1 class="studio-quote main-quote">
+                        <span class="anim-text">"Where Sound</span><br>
+                        <span class="anim-text accent">Meets Soul."</span>
+                    </h1>
+                    <p class="hero-sub quote-sub" style="margin-top: 2rem; opacity: 0;">
+                        "Every great project begins with a vision. We transform your creative ideas into unforgettable
+                        sonic experiences."
+                    </p>
+                    <p class="hero-sub quote-tagline"
+                        style="margin-top: 1rem; opacity: 0; font-style: italic; color: #C63C51;">
+                        — Crafting excellence, one track at a time.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Studio Director Section -->
+            <section class="director-section">
+                <div class="container">
+                    <div class="director-grid">
+                        <div class="director-image">
+                            <div class="image-placeholder">
+                                <svg width="100%" height="100%" viewBox="0 0 400 400"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="400" height="400" fill="#1a1a1a" />
+                                    <circle cx="200" cy="160" r="60" fill="#C63C51" opacity="0.3" />
+                                    <path d="M 120 280 Q 200 240 280 280 L 280 400 L 120 400 Z" fill="#C63C51"
+                                        opacity="0.3" />
+                                    <text x="200" y="340" text-anchor="middle" fill="#757575" font-size="16"
+                                        font-family="General Sans, sans-serif"></text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="director-content">
+                            <h2 class="director-title">Meet the Visionary</h2>
+                            <div class="director-bio">
+                                <p>
+                                    With over a decade of experience in audio engineering and music production, our
+                                    studio director
+                                    has worked with artists across genres—from indie singer-songwriters to major label
+                                    releases.
+                                    His journey began in the underground music scene, where passion for sound design and
+                                    storytelling
+                                    evolved into a professional craft.
+                                </p>
+                                <p>
+                                    His philosophy is simple yet profound: <strong>"Every artist deserves to be heard in
+                                        their truest form."</strong>
+                                    This drives every decision in the studio—from microphone placement to the final
+                                    master. He believes
+                                    that great production isn't about imposing a signature sound, but rather about
+                                    enhancing what makes
+                                    each artist unique.
+                                </p>
+                                <p>
+                                    What sets him apart is his ability to connect deeply with artists on both a
+                                    technical and emotional level.
+                                    He doesn't just engineer sessions; he collaborates, mentors, and brings out
+                                    performances that artists
+                                    didn't know they had in them. His approach combines cutting-edge technology with a
+                                    human touch,
+                                    creating a space where creativity flourishes without compromise.
+                                </p>
+                            </div>
+                            <div class="director-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-number">0+</span>
+                                    <span class="highlight-label">Years Experience</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-number">0+</span>
+                                    <span class="highlight-label">Projects Completed</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-number">0+</span>
+                                    <span class="highlight-label">Happy Artists</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Reviews Section -->
+            <section class="reviews-section">
+                <div class="container">
+                    <h2 class="section-title">What Our Artists Say</h2>
+                    <p class="reviews-subtitle">Real experiences from real artists who've trusted us with their sound.
+                    </p>
+                </div>
+
+                <div class="reviews-marquee">
+                    <div class="reviews-track">
+                        <!-- Review Cards - Set 1 -->
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "Working with this studio was a game-changer for my music. The attention to detail
+                                and the creative input transformed my demo into a professional track that I'm truly
+                                proud of."
+                            </p>
+                            <div class="reviewer">
+                                <strong>Priya Sharma</strong>
+                                <span>Independent Singer-Songwriter</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "The mixing and mastering here is absolutely top-notch. My tracks finally sound
+                                competitive with international releases. Highly recommend!"
+                            </p>
+                            <div class="reviewer">
+                                <strong>Arjun Malhotra</strong>
+                                <span>Music Producer</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "Not only did I get amazing sound quality, but the director's guidance helped me
+                                deliver my best vocal performance ever. The vibe here is just unmatched."
+                            </p>
+                            <div class="reviewer">
+                                <strong>Neha Kapoor</strong>
+                                <span>Vocalist</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★☆</div>
+                            <p class="review-text">
+                                "Great experience overall. The music video production exceeded my expectations,
+                                and the team was professional throughout. Will definitely work here again."
+                            </p>
+                            <div class="reviewer">
+                                <strong>Rahul Verma</strong>
+                                <span>Hip-Hop Artist</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "This studio understands the creative process. They gave me the space to experiment
+                                while providing technical expertise when needed. True collaboration!"
+                            </p>
+                            <div class="reviewer">
+                                <strong>Kavya Reddy</strong>
+                                <span>Composer</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "From recording to final master, every step was handled with care and precision.
+                                My EP sounds exactly how I envisioned it. Couldn't be happier!"
+                            </p>
+                            <div class="reviewer">
+                                <strong>Aditya Singh</strong>
+                                <span>Alternative Rock Band</span>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Set for Seamless Loop -->
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "Working with this studio was a game-changer for my music. The attention to detail
+                                and the creative input transformed my demo into a professional track that I'm truly
+                                proud of."
+                            </p>
+                            <div class="reviewer">
+                                <strong>Priya Sharma</strong>
+                                <span>Independent Singer-Songwriter</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "The mixing and mastering here is absolutely top-notch. My tracks finally sound
+                                competitive with international releases. Highly recommend!"
+                            </p>
+                            <div class="reviewer">
+                                <strong>Arjun Malhotra</strong>
+                                <span>Music Producer</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "Not only did I get amazing sound quality, but the director's guidance helped me
+                                deliver my best vocal performance ever. The vibe here is just unmatched."
+                            </p>
+                            <div class="reviewer">
+                                <strong>Neha Kapoor</strong>
+                                <span>Vocalist</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★☆</div>
+                            <p class="review-text">
+                                "Great experience overall. The music video production exceeded my expectations,
+                                and the team was professional throughout. Will definitely work here again."
+                            </p>
+                            <div class="reviewer">
+                                <strong>Rahul Verma</strong>
+                                <span>Hip-Hop Artist</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "This studio understands the creative process. They gave me the space to experiment
+                                while providing technical expertise when needed. True collaboration!"
+                            </p>
+                            <div class="reviewer">
+                                <strong>Kavya Reddy</strong>
+                                <span>Composer</span>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">
+                                "From recording to final master, every step was handled with care and precision.
+                                My EP sounds exactly how I envisioned it. Couldn't be happier!"
+                            </p>
+                            <div class="reviewer">
+                                <strong>Aditya Singh</strong>
+                                <span>Alternative Rock Band</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact" style="padding-top: 100px;">
+                <div class="container">
+                    <h2>Ready to start?</h2>
+                    <a href="mailto:ayush.studio@gmail.com" class="cta-btn">ayush.studio@gmail.com</a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"></script>
+
+    <script>
+        // We use a separate script logic here to avoid conflicts with Home page elements
+        window.addEventListener("load", () => {
+            gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+            // 1. Init Smooth Scroll
+            ScrollSmoother.create({
+                wrapper: "#smooth-wrapper",
+                content: "#smooth-content",
+                smooth: 1.5,
+                effects: true,
+                normalizeScroll: true
+            });
+
+            // 2. Navbar Animation (Fade Down)
+            gsap.from(".navbar", {
+                y: -50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+
+            // 3. Page Hero Text Animation
+            gsap.from(".anim-text", {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.2
+            });
+
+            // 3b. Quote Subtitle Animation
+            gsap.to(".quote-sub", {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power2.out",
+                delay: 1
+            });
+
+            gsap.to(".quote-tagline", {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power2.out",
+                delay: 1.3
+            });
+
+            // 4. Director Section Animation
+            gsap.from(".director-grid", {
+                scrollTrigger: {
+                    trigger: ".director-section",
+                    start: "top 80%",
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            // 5. Director Highlights Stagger
+            gsap.from(".highlight-item", {
+                scrollTrigger: {
+                    trigger: ".director-highlights",
+                    start: "top 85%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+
+            // 6. Reviews Section Title
+            gsap.from(".reviews-section .section-title, .reviews-subtitle", {
+                scrollTrigger: {
+                    trigger: ".reviews-section",
+                    start: "top 85%"
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+        });
+    </script>
+</body>
+
+</html>

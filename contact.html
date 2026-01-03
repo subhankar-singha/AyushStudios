@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Ayush Studio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- 🌐 Navigation -->
+            <nav class="navbar">
+                <div class="container nav-container">
+                    <div class="brand">LOGO</div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="./html_files/studio.html">Studio</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- 🦋 Hero Section -->
+            <section class="hero" style="height: 50vh;">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="word">Let's</span>
+                        <span class="word accent">Talk</span>
+                    </h1>
+                    <p class="hero-sub">Ready to start your project? Get in touch with us.</p>
+                </div>
+            </section>
+
+            <!-- 📞 Contact Section -->
+            <section class="contact-form-section" style="padding: 50px 0 100px; background: #fff;">
+                <div class="container contact-grid-layout">
+
+                    <!-- Form Column -->
+                    <div class="form-column">
+                        <h2 style="margin-bottom: 2rem;">Send a Message</h2>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-type">Project Type</label>
+                                <select id="project-type" name="project-type"
+                                    style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; background: #fff;">
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="music">Music Production</option>
+                                    <option value="video">Video Production</option>
+                                    <option value="academy">Academy / Course</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6"
+                                    placeholder="Tell us about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="cta-btn"
+                                style="border: none; cursor: pointer; font-size: 1rem;">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Direct Contact Column -->
+                    <div class="info-column">
+                        <div class="info-box">
+                            <h3>Direct Contact</h3>
+                            <p style="margin-bottom: 1.5rem; color: #555;">Prefer to chat directly? Reach out to us via
+                                email or WhatsApp.</p>
+
+                            <div class="contact-item">
+                                <h4>Email</h4>
+                                <a href="mailto:ayush.studio@gmail.com" class="contact-link">ayush.studio@gmail.com</a>
+                            </div>
+
+                            <div class="contact-item" style="margin-top: 2rem;">
+                                <h4>WhatsApp</h4>
+                                <a href="#" class="btn-whatsapp"
+                                    style="display: inline-block; width: auto; padding: 0.8rem 2rem;">Chat on
+                                    WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="info-box" style="margin-top: 2rem;">
+                            <h3>Studio Address</h3>
+                            <p style="color: #555; line-height: 1.6;">
+                                Dinhata, Cooch Behar
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section class="contact" style="padding-bottom: 50px; padding-top: 50px;">
+                <div class="container contact-inner">
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank">Youtube</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                    <p style="margin-top: 20px; color: #555; font-size: 0.9rem;">&copy; 2024 Ayush Studio. All rights
+                        reserved.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!--Smooth scrolling-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"
+        integrity="sha512-t4hwZimhnCKT3YLAsEcAcRDkngVFfCcUIfNLIjklrIZAZKD+GfQMP7HbRcsVHxNS48WRBSywNU1uSM2zzLQt1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ⚙️ Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services — Ayush Studio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- 🌐 Navigation -->
+            <nav class="navbar">
+                <div class="container nav-container">
+                    <div class="brand">LOGO</div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="./html_files/studio.html">Studio</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="./services.html" class="active">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- 🦋 Hero Section -->
+            <section class="hero" style="height: 50vh;">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="word">Our</span>
+                        <span class="word accent">Services</span>
+                    </h1>
+                    <p class="hero-sub">Configure your perfect package or choose from our ready-made solutions.</p>
+                    <br>
+                </div>
+            </section>
+
+            <!-- Section Tabs Navigation -->
+            <section class="section-tabs-container">
+                <div class="container">
+                    <div class="section-tabs">
+                        <button class="section-tab active" data-section="music">
+                            <span class="tab-icon">🎵</span>
+                            Music
+                        </button>
+                        <button class="section-tab" data-section="video">
+                            <span class="tab-icon">🎥</span>
+                            Video
+                        </button>
+                        <button class="section-tab" data-section="academy">
+                            <span class="tab-icon">🎓</span>
+                            Academy
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Content Container with Cart -->
+            <div class="services-main-container">
+                <div class="container services-flex-container">
+
+                    <!-- Left Side: Service Sections -->
+                    <div class="services-content-area">
+
+                        <!-- 🎵 MUSIC SECTION -->
+                        <div class="section-content active" id="music-section">
+                            <h2 class="section-title">Music Production Services</h2>
+
+                            <!-- Package Cards Grid -->
+                            <div class="packages-grid">
+
+                                <!-- Basic Package -->
+                                <div class="package-card">
+                                    <h3 class="package-title">Basic</h3>
+                                    <p class="package-desc">Perfect for demos and singer-songwriters</p>
+                                    <ul class="package-features">
+                                        <li>Vocal Recording</li>
+                                        <li>Basic Mixing</li>
+                                        <li>Stereo Master</li>
+                                    </ul>
+                                    <p class="package-price">Starting at ₹XXXX</p>
+                                    <button class="package-btn" data-package="basic" data-section="music">Choose
+                                        Basic</button>
+                                </div>
+
+                                <!-- Standard Package -->
+                                <div class="package-card popular">
+                                    <span class="package-badge">Popular</span>
+                                    <h3 class="package-title">Standard</h3>
+                                    <p class="package-desc">Full production for a radio-ready single</p>
+                                    <ul class="package-features">
+                                        <li>Full Arrangement</li>
+                                        <li>Recording & Editing</li>
+                                        <li>Professional Mix & Master</li>
+                                        <li>Session Musicians</li>
+                                    </ul>
+                                    <p class="package-price">Starting at ₹XXXX</p>
+                                    <button class="package-btn" data-package="standard" data-section="music">Choose
+                                        Standard</button>
+                                </div>
+
+                                <!-- Custom Package -->
+                                <div class="package-card custom-package">
+                                    <h3 class="package-title">Custom</h3>
+                                    <p class="package-desc">Build your own perfect package</p>
+                                    <button class="package-btn expand-custom-btn" id="expand-music-custom">
+                                        Configure Custom Package
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!-- Custom Service Expander -->
+                            <div class="custom-expander" id="music-custom-expander" style="display: none;">
+
+                                <!-- Plan Type Selector -->
+                                <div class="plan-type-selector">
+                                    <h3>Select Your Plan Type</h3>
+                                    <div class="plan-options">
+                                        <label class="plan-option active">
+                                            <input type="radio" name="music-plan-type" value="original" checked>
+                                            <div class="plan-option-content">
+                                                <span class="plan-option-icon">✨</span>
+                                                <span class="plan-option-title">Original Song</span>
+                                                <span class="plan-option-desc">Create your unique sound from
+                                                    scratch</span>
+                                            </div>
+                                        </label>
+                                        <label class="plan-option">
+                                            <input type="radio" name="music-plan-type" value="cover">
+                                            <div class="plan-option-content">
+                                                <span class="plan-option-icon">🎼</span>
+                                                <span class="plan-option-title">Cover Song</span>
+                                                <span class="plan-option-desc">Put your spin on existing music</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Service Categories -->
+                                <div class="service-categories">
+                                    <h3>Select Services</h3>
+
+                                    <!-- Category 1: Songwriting & Composition -->
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">🎼</span>
+                                            Songwriting & Composition
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="music-composition" data-name="Music Composition"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Music Composition</span>
+                                                    <span class="service-description">Original melodies and musical
+                                                        arrangements</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="lyrics-writing" data-name="Lyrics Writing"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Lyrics Writing</span>
+                                                    <span class="service-description">Professional lyric writing
+                                                        services</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="complete-songwriting"
+                                                    data-name="Complete Songwriting (Lyrics & Melody)"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Complete Songwriting (Lyrics &
+                                                        Melody)</span>
+                                                    <span class="service-description">Full songwriting service combining
+                                                        lyrics with melodies</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Category 2: Recording -->
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">🎙️</span>
+                                            Recording
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="lead-vocal-recording" data-name="Lead Vocal Recording"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Lead Vocal Recording</span>
+                                                    <span class="service-description">Professional vocal recording with
+                                                        high-end microphones</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="group-vocal-recording"
+                                                    data-name="Group Vocal Recording" data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Group Vocal Recording</span>
+                                                    <span class="service-description">Multi-vocalist recording
+                                                        sessions</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="instrument-recording" data-name="Instrument Recording"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Instrument Recording</span>
+                                                    <span class="service-description">Live instrument recording with
+                                                        expert mic placement</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item included-service">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="creative-vocal-support"
+                                                    data-name="Creative Vocal Support" data-section="music" disabled
+                                                    checked>
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Creative Vocal Support</span>
+                                                    <span class="service-description">Included with vocal
+                                                        recording</span>
+                                                    <span class="included-badge">Included</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="vocal-coaching"
+                                                    data-name="Vocal Coaching (During Recording)" data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Vocal Coaching (During Recording)</span>
+                                                    <span class="service-description">Real-time vocal coaching and
+                                                        performance guidance</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="song-direction"
+                                                    data-name="Song Direction & Creative Guidance" data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Song Direction & Creative Guidance</span>
+                                                    <span class="service-description">Expert direction on arrangement
+                                                        and production</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Category 3: Music Arrangement & Programming -->
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">🎹</span>
+                                            Music Arrangement & Programming
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="full-music-arrangement"
+                                                    data-name="Full Music Arrangement & Production"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Full Music Arrangement &
+                                                        Production</span>
+                                                    <span class="service-description">Complete track production with all
+                                                        instruments</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="basic-music-arrangement"
+                                                    data-name="Basic Music Arrangement (Up to 4 Instruments)"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Basic Music Arrangement (Up to 4
+                                                        Instruments)</span>
+                                                    <span class="service-description">Simplified arrangement for
+                                                        acoustic tracks</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="piano-based-arrangement"
+                                                    data-name="Piano-Based Arrangement" data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Piano-Based Arrangement</span>
+                                                    <span class="service-description">Beautiful piano-driven
+                                                        arrangements</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Category 4: Post Production -->
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">🎚️</span>
+                                            Post Production
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="vocal-pitch-correction"
+                                                    data-name="Vocal Pitch Correction" data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Vocal Pitch Correction</span>
+                                                    <span class="service-description">Precise pitch correction
+                                                        maintaining natural character</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="vocal-editing"
+                                                    data-name="Vocal Editing (Comping, Timing & Cleanup)"
+                                                    data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Vocal Editing (Comping, Timing &
+                                                        Cleanup)</span>
+                                                    <span class="service-description">Detailed vocal editing including
+                                                        take compilation</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="stereo-mixing-mastering"
+                                                    data-name="Stereo Mixing & Mastering" data-section="music">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Stereo Mixing & Mastering</span>
+                                                    <span class="service-description">Professional mixing and mastering
+                                                        for streaming platforms</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- 🎥 VIDEO SECTION -->
+                        <div class="section-content" id="video-section">
+                            <h2 class="section-title">Video Production Services</h2>
+
+                            <!-- Package Cards Grid -->
+                            <div class="packages-grid">
+
+                                <!-- Basic Package -->
+                                <div class="package-card">
+                                    <h3 class="package-title">Basic</h3>
+                                    <p class="package-desc">Single camera music video essentials</p>
+                                    <ul class="package-features">
+                                        <li>1 Day Shoot</li>
+                                        <li>Single Camera</li>
+                                        <li>Basic Editing</li>
+                                        <li>Color Correction</li>
+                                    </ul>
+                                    <p class="package-price">Starting at ₹XXXX</p>
+                                    <button class="package-btn" data-package="basic" data-section="video">Choose
+                                        Basic</button>
+                                </div>
+
+                                <!-- Standard Package -->
+                                <div class="package-card popular">
+                                    <span class="package-badge">Popular</span>
+                                    <h3 class="package-title">Standard</h3>
+                                    <p class="package-desc">Multi-camera professional production</p>
+                                    <ul class="package-features">
+                                        <li>2 Day Shoot</li>
+                                        <li>Multi-Camera Setup</li>
+                                        <li>Professional Editing</li>
+                                        <li>Color Grading</li>
+                                        <li>Motion Graphics</li>
+                                    </ul>
+                                    <p class="package-price">Starting at ₹XXXX</p>
+                                    <button class="package-btn" data-package="standard" data-section="video">Choose
+                                        Standard</button>
+                                </div>
+
+                                <!-- Custom Package -->
+                                <div class="package-card custom-package">
+                                    <h3 class="package-title">Custom</h3>
+                                    <p class="package-desc">Build your own video package</p>
+                                    <button class="package-btn expand-custom-btn" id="expand-video-custom">
+                                        Configure Custom Package
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!-- Custom Service Expander -->
+                            <div class="custom-expander" id="video-custom-expander" style="display: none;">
+
+                                <div class="service-categories">
+                                    <h3>Select Video Services</h3>
+
+                                    <!-- Placeholder Video Services -->
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">📝</span>
+                                            Pre-Production
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="concept-development" data-name="Concept Development"
+                                                    data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Concept Development</span>
+                                                    <span class="service-description">Creative ideation and
+                                                        storyboarding</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="scriptwriting" data-name="Scriptwriting"
+                                                    data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Scriptwriting</span>
+                                                    <span class="service-description">Professional script
+                                                        development</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">🎬</span>
+                                            Production
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox" data-service="filming"
+                                                    data-name="Professional Filming" data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Professional Filming</span>
+                                                    <span class="service-description">4K camera and lighting
+                                                        setup</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox" data-service="direction"
+                                                    data-name="Direction & Coordination" data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Direction & Coordination</span>
+                                                    <span class="service-description">On-set creative direction</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-category">
+                                        <h4 class="category-title">
+                                            <span class="category-icon">✂️</span>
+                                            Post-Production
+                                        </h4>
+                                        <div class="service-checkbox-group">
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="video-editing" data-name="Video Editing"
+                                                    data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Video Editing</span>
+                                                    <span class="service-description">Professional cutting and
+                                                        sequencing</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="color-grading-video" data-name="Color Grading"
+                                                    data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">Color Grading</span>
+                                                    <span class="service-description">Cinematic color correction and
+                                                        grading</span>
+                                                </div>
+                                            </label>
+                                            <label class="service-checkbox-item">
+                                                <input type="checkbox" class="service-checkbox"
+                                                    data-service="vfx-motion-graphics" data-name="VFX & Motion Graphics"
+                                                    data-section="video">
+                                                <span class="checkbox-custom"></span>
+                                                <div class="service-info">
+                                                    <span class="service-name">VFX & Motion Graphics</span>
+                                                    <span class="service-description">Visual effects and animated
+                                                        elements</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- 🎓 ACADEMY SECTION -->
+                        <div class="section-content" id="academy-section">
+                            <h2 class="section-title">Academy Programs</h2>
+
+                            <!-- Academy Cards Grid -->
+                            <div class="academy-cards-grid">
+
+                                <div class="academy-card">
+                                    <span class="academy-icon">⚡</span>
+                                    <h3 class="academy-title">Workshop</h3>
+                                    <p class="academy-desc">Intensive weekend learning sessions focused on specific
+                                        topics</p>
+                                    <ul class="academy-features">
+                                        <li>2 Days Hands-on Training</li>
+                                        <li>Specific Topic Focus</li>
+                                        <li>Certificate of Completion</li>
+                                        <li>Small Batch Size</li>
+                                    </ul>
+                                    <p class="academy-price">₹XXXX / Workshop</p>
+                                    <div class="academy-actions">
+                                        <a href="contact.html" class="academy-btn primary">Enroll Now</a>
+                                        <button class="academy-btn secondary">Learn More</button>
+                                    </div>
+                                </div>
+
+                                <div class="academy-card featured">
+                                    <span class="academy-badge">Recommended</span>
+                                    <span class="academy-icon">🎓</span>
+                                    <h3 class="academy-title">Full Course</h3>
+                                    <p class="academy-desc">Complete Audio Engineering Program with certification</p>
+                                    <ul class="academy-features">
+                                        <li>3 Months Duration</li>
+                                        <li>1-on-1 Mentorship</li>
+                                        <li>Studio Internship</li>
+                                        <li>Placement Assistance</li>
+                                        <li>Industry Certification</li>
+                                    </ul>
+                                    <p class="academy-price">Starting at ₹XXXX</p>
+                                    <div class="academy-actions">
+                                        <a href="contact.html" class="academy-btn primary">Enroll Now</a>
+                                        <button class="academy-btn secondary">View Curriculum</button>
+                                    </div>
+                                </div>
+
+                                <div class="academy-card">
+                                    <span class="academy-icon">👨‍🏫</span>
+                                    <h3 class="academy-title">One-on-One Mentorship</h3>
+                                    <p class="academy-desc">Personalized training tailored to your specific goals</p>
+                                    <ul class="academy-features">
+                                        <li>Flexible Schedule</li>
+                                        <li>Customized Curriculum</li>
+                                        <li>Direct Studio Access</li>
+                                        <li>Portfolio Development</li>
+                                    </ul>
+                                    <p class="academy-price">Custom Pricing</p>
+                                    <div class="academy-actions">
+                                        <a href="contact.html" class="academy-btn primary">Enroll Now</a>
+                                        <button class="academy-btn secondary">Learn More</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right Side: Cart Panel -->
+                    <aside class="cart-panel" id="cart-panel">
+                        <div class="cart-panel-inner">
+                            <h3 class="cart-header">
+                                <span class="cart-icon">🛒</span>
+                                Your Selection
+                            </h3>
+
+                            <div class="cart-meta" id="cart-meta">
+                                <p class="cart-section-display">Section: <span id="cart-section-name">Music</span></p>
+                                <p class="cart-plan-display" id="cart-plan-display" style="display: none;">Plan: <span
+                                        id="cart-plan-type">Original Song</span></p>
+                                <p class="cart-package-display" id="cart-package-display" style="display: none;">
+                                    Package: <span id="cart-package-name">-</span></p>
+                            </div>
+
+                            <div class="cart-items" id="cart-items">
+                                <p class="cart-empty">No services selected yet. Choose a package or configure a custom
+                                    selection.</p>
+                            </div>
+
+                            <div class="cart-footer">
+                                <div class="cart-total" id="cart-total">
+                                    <span class="total-label">Total:</span>
+                                    <span class="total-value">Contact for Quote</span>
+                                </div>
+                                <button class="cart-order-btn" id="order-btn" disabled>
+                                    <span class="btn-icon">💬</span>
+                                    Order via WhatsApp
+                                </button>
+                                <button class="cart-clear-btn" id="clear-cart-btn" style="display: none;">
+                                    Clear Selection
+                                </button>
+                            </div>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <section class="contact" style="padding-bottom: 50px; padding-top: 50px;">
+                <div class="container contact-inner">
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank">Youtube</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                    <p style="margin-top: 20px; color: #555; font-size: 0.9rem;">&copy; 2024 Ayush Studio. All rights
+                        reserved.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!--Smooth scrolling-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"
+        integrity="sha512-t4hwZimhnCKT3YLAsEcAcRDkngVFfCcUIfNLIjklrIZAZKD+GfQMP7HbRcsVHxNS48WRBSywNU1uSM2zzLQt1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ⚙️ Script -->
+    <script src="script.js"></script>
+    <script src="services-cart.js"></script>
+</body>
+
+</html>

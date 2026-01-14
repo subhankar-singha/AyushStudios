@@ -8,9 +8,90 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Icon Styles -->
+    <style>
+        .fa-instagram {
+            font-size: 30px;
+
+        }
+
+        .fa-youtube {
+            font-size: 30px;
+
+        }
+
+        .fa-facebook {
+            font-size: 30px;
+
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            margin-top: 3px;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-float {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -24,9 +105,9 @@
                     <ul class="nav-links">
 
                         <li><a href="#" class="active">Home</a></li>
-                        <li><a href="./html_files/studio.html">Studio</a></li>
-                        <li><a href="./work.html">Work</a></li>
                         <li><a href="./services.html">Services</a></li>
+                        <li><a href="./work.html">Works</a></li>
+                        <li><a href="./html_files/studio.html">About Us</a></li>
                         <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -49,22 +130,26 @@
             <!-- 💡 Services Section -->
             <section class="services">
                 <div class="container">
-                    <h2 class="section-title">Things We Do</h2>
+                    <h2 class="section-title">Things We Offer</h2>
                     <div class="service-list">
                         <div class="service service-music">
-                            <h3>Music</h3>
+                            <h3><span style="color: #C63C51;">Harmonics Heaven Studio</span> <span
+                                    style="font-size: 15px;">(Music)</span></h3>
                             <p>Professional recording, arrangement, mixing, and mastering to craft and polish your
                                 signature, radio-ready sound.</p>
                         </div>
 
                         <div class="service service-video">
-                            <h3>Video</h3>
+                            <h3><span style="color: #C63C51;">Moments Magic Studio</span> <span
+                                    style="font-size: 15px;"><br>(Photo & Video)</span></h3>
                             <p>We create stunning visual narratives, from music videos to live sessions, that capture
                                 your story and amplify your presence.</p>
                         </div>
 
                         <div class="service service-academy">
-                            <h3>Academy</h3>
+                            <h3><span style="color: #C63C51;">Ayush Music Academy</span><span
+                                    style="font-size: 15px;"><br>(Education)</span></h3>
+
                             <p>Expert-led training and workshops in audio engineering, production, and artist
                                 development for aspiring industry talents.</p>
                         </div>
@@ -118,7 +203,7 @@
                         </div>
                     </div>
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="work.html#projectlink" class="cta-btn btn-animated">View All Work</a>
+                        <a href="work.html#projectlink" class="cta-btn btn-animated">View All Works</a>
                     </div>
                 </div>
             </section>
@@ -130,15 +215,27 @@
                     </h2>
                     <a href="mailto:hi@tunnel.studio" class="cta-btn">ayush.studio@gmail.com</a>
                     <div class="social-links">
-                        <a href="#">Instagram</a>
-                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank">Youtube</a>
-                        <a href="#">Facebook</a>
+                        <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw=="
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a>
                     </div>
+                    <p style="margin-top: 20px; color: #999; font-size: 0.9rem;">&copy; 2026 Ayush Studio. All rights
+                        reserved.</p>
                 </div>
             </section>
 
         </div>
     </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Ayush%20Studio%2C%20I%20would%20like%20to%20inquire%20about%20your%20services"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <!--Smooth scrolling-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
         integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="

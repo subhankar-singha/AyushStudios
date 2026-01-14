@@ -1,4 +1,4 @@
-// Services Configurator - Cart Management System
+﻿// Services Configurator - Cart Management System
 
 // Cart State
 const cart = {
@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCustomExpandButtons();
     setupPlanTypeSelectors();
     setupServiceCheckboxes();
+    setupServiceRadios();
+    setupSelectAllCheckboxes();
     setupCartButtons();
 });
 
@@ -62,6 +64,16 @@ function switchSection(sectionName) {
     // Update cart section
     cart.section = sectionName;
     cartSectionName.textContent = sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
+
+    // Hide cart for Academy section (Academy uses direct enrollment)
+    const cartPanel = document.getElementById('cart-panel');
+    if (cartPanel) {
+        if (sectionName === 'academy') {
+            cartPanel.style.display = 'none';
+        } else {
+            cartPanel.style.display = 'block';
+        }
+    }
 
     // Clear cart when switching sections
     clearCart();
@@ -164,6 +176,99 @@ function setupPlanTypeSelectors() {
 
             // Update cart display
             cartPlanType.textContent = radio.value === 'original' ? 'Original Song' : 'Cover Song';
+
+            // Show/Hide Songwriting & Composition section based on plan type
+            toggleSongwritingSection(radio.value);
+        });
+    });
+}
+
+// Toggle Songwriting & Composition category visibility
+function toggleSongwritingSection(planType) {
+    // Find the Songwriting & Composition category in the music section
+    const musicSection = document.getElementById('music-custom-expander');
+    if (!musicSection) return;
+
+    const songwritingCategories = musicSection.querySelectorAll('.service-category');
+
+    songwritingCategories.forEach(category => {
+        const categoryTitle = category.querySelector('.category-title');
+        if (categoryTitle && categoryTitle.textContent.includes('Songwriting & Composition')) {
+            if (planType === 'cover') {
+                // Hide the category
+                category.style.display = 'none';
+
+                // Uncheck and remove songwriting services from cart
+                const songwritingCheckboxes = category.querySelectorAll('.service-checkbox');
+                songwritingCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        checkbox.checked = false;
+                        const serviceId = checkbox.getAttribute('data-service');
+                        removeFromCart(serviceId);
+                    }
+                });
+            } else {
+                // Show the category for original songs
+                category.style.display = 'block';
+            }
+        }
+    });
+}
+
+// ========== Service Radio Buttons (for Music Arrangement) ==========
+function setupServiceRadios() {
+    const serviceRadios = document.querySelectorAll('.service-radio');
+
+    serviceRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.checked) {
+                const serviceId = radio.getAttribute('data-service');
+                const serviceName = radio.getAttribute('data-name');
+                const serviceSection = radio.getAttribute('data-section');
+                const radioName = radio.getAttribute('name');
+
+                // Remove other radio selections from the same group from cart
+                const sameGroupRadios = document.querySelectorAll(`input[name="${radioName}"]`);
+                sameGroupRadios.forEach(otherRadio => {
+                    if (otherRadio !== radio) {
+                        const otherId = otherRadio.getAttribute('data-service');
+                        removeFromCart(otherId);
+                    }
+                });
+
+                // Add the selected radio to cart
+                addToCart(serviceId, serviceName, serviceSection);
+            }
+        });
+    });
+}
+
+// ========== Select All Checkboxes ==========
+function setupSelectAllCheckboxes() {
+    const selectAllCheckboxes = document.querySelectorAll('.select-all-checkbox');
+
+    selectAllCheckboxes.forEach(selectAll => {
+        selectAll.addEventListener('change', () => {
+            const category = selectAll.getAttribute('data-category');
+            const section = selectAll.getAttribute('data-section');
+
+            // Find all checkboxes in the same category
+            const categoryCheckboxes = document.querySelectorAll(
+                `.service-checkbox[data-category="${category}"][data-section="${section}"]:not(:disabled)`
+            );
+
+            categoryCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAll.checked;
+
+                const serviceId = checkbox.getAttribute('data-service');
+                const serviceName = checkbox.getAttribute('data-name');
+
+                if (selectAll.checked) {
+                    addToCart(serviceId, serviceName, section);
+                } else {
+                    removeFromCart(serviceId);
+                }
+            });
         });
     });
 }
@@ -268,7 +373,7 @@ function updateCartUI() {
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
       <span>${service.name}</span>
-      <button class="cart-remove-btn" data-id="${service.id}" title="Remove">×</button>
+      <button class="cart-remove-btn" data-id="${service.id}" title="Remove">Ã—</button>
     `;
         cartItemsContainer.appendChild(cartItem);
     });
@@ -306,17 +411,17 @@ function setupCartButtons() {
 
 function generateWhatsAppMessage() {
     let message = `Hi! I'd like to order the following from Ayush Studio:\n\n`;
-    message += `📍 Section: ${cart.section.charAt(0).toUpperCase() + cart.section.slice(1)}\n`;
+    message += `ðŸ“ Section: ${cart.section.charAt(0).toUpperCase() + cart.section.slice(1)}\n`;
 
     if (cart.packageType) {
-        message += `📦 Package: ${cart.packageType.charAt(0).toUpperCase() + cart.packageType.slice(1)}\n`;
+        message += `ðŸ“¦ Package: ${cart.packageType.charAt(0).toUpperCase() + cart.packageType.slice(1)}\n`;
     }
 
     if (cart.section === 'music' && cart.packageType === 'custom') {
-        message += `🎵 Plan Type: ${cart.planType === 'original' ? 'Original Song' : 'Cover Song'}\n`;
+        message += `ðŸŽµ Plan Type: ${cart.planType === 'original' ? 'Original Song' : 'Cover Song'}\n`;
     }
 
-    message += `\n💼 Selected Services:\n`;
+    message += `\nðŸ’¼ Selected Services:\n`;
     cart.selectedServices.forEach((service, index) => {
         message += `${index + 1}. ${service.name}\n`;
     });

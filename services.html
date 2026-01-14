@@ -6,670 +6,1512 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services — Ayush Studio</title>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css" />
 
+    <style>
+        .fa-instagram {
+            font-size: 30px;
+            color: #E1306C;
+        }
+
+        .fa-youtube {
+            font-size: 30px;
+            color: #C4302B;
+        }
+
+        .fa-facebook {
+            font-size: 30px;
+            color: #3B5998;
+        }
+
+        /* Services Page Styles */
+        .services-hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(198, 60, 81, 0.3)), url('images/studio.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .services-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .services-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .services-container {
+            padding: 80px 0;
+        }
+
+        /* Category Cards Grid */
+        .category-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 250px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-card.active .category-card-overlay {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .category-card.active {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover .category-card-bg {
+            transform: scale(1.05);
+        }
+
+        .category-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .category-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .category-card-title {
+            font-size: 2rem;
+            color: #fff;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .category-card-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        /* Expandable Service Category */
+        .service-category-item {
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .category-header {
+            display: none;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #111;
+            margin: 0;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category-header.active .category-icon {
+            transform: rotate(180deg);
+        }
+
+        .sub-services {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .sub-services.active {
+            max-height: 5000px;
+        }
+
+        .sub-service-item {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .sub-service-item:hover {
+            background: #fff;
+        }
+
+        .sub-service-info h4 {
+            font-size: 1.2rem;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-service-info p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .add-to-cart-btn {
+            padding: 0.7rem 1.5rem;
+            background: #C63C51;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #a82f42;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(198, 60, 81, 0.3);
+        }
+
+        .add-to-cart-btn:disabled,
+        .add-to-cart-btn-small:disabled {
+            background: #86efac;
+            color: #166534;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .add-to-cart-btn:disabled:hover,
+        .add-to-cart-btn-small:disabled:hover {
+            background: #86efac;
+            transform: none;
+        }
+
+        /* Package Cards */
+        .packages-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            border-color: #C63C51;
+            box-shadow: 0 8px 30px rgba(198, 60, 81, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            color: #111;
+            font-weight: 600;
+        }
+
+        .package-badge {
+            background: #C63C51;
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .package-description {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .package-features li {
+            padding: 0.6rem 0;
+            color: #444;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #C63C51;
+            font-weight: bold;
+        }
+
+        .package-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            color: #111;
+            font-weight: 600;
+        }
+
+        /* Floating Cart */
+        .cart-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #C63C51;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(198, 60, 81, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+
+        .cart-widget.active {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cart-widget:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(198, 60, 81, 0.5);
+        }
+
+        .cart-widget.shake {
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .cart-count {
+            background: #fff;
+            color: #C63C51;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-content {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+            flex-shrink: 0;
+        }
+
+        .cart-header h3 {
+            font-size: 1.8rem;
+            color: #111;
+            margin: 0;
+        }
+
+        .cart-header h3 {
+            font-size: 1.8rem;
+            color: #111;
+        }
+
+        .close-cart {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #C63C51;
+            border: 2px solid rgba(198, 60, 81, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .close-cart:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: #C63C51;
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 25px rgba(198, 60, 81, 0.3);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-bottom: 1.5rem;
+            padding-right: 0.5rem;
+        }
+
+        /* Custom scrollbar for cart items */
+        .cart-items::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .cart-items::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .cart-items::-webkit-scrollbar-thumb {
+            background: #C63C51;
+            border-radius: 10px;
+        }
+
+        .cart-items::-webkit-scrollbar-thumb:hover {
+            background: #a82f42;
+        }
+
+        .cart-item {
+            padding: 1rem 1.2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: #111;
+            font-size: 1rem;
+        }
+
+        .cart-item-category {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.2rem;
+        }
+
+        .remove-item {
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            color: #C63C51;
+            border: 2px solid #C63C51;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .remove-item:hover {
+            background: #C63C51;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+            }
+
+            .sub-service-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .cart-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Nested Sub-Service Styles */
+        .nested-sub-service {
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin: 1rem 0 1rem 2rem;
+            overflow: hidden;
+        }
+
+        .nested-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #fefefe 0%, #f9f9f9 100%);
+            border-left: 3px solid #C63C51;
+            transition: all 0.3s ease;
+        }
+
+        .nested-header:hover {
+            background: #fff;
+        }
+
+        .nested-header h5 {
+            font-size: 1.1rem;
+            color: #111;
+            margin: 0;
+        }
+
+        .nested-icon {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nested-header.active .nested-icon {
+            transform: rotate(180deg);
+        }
+
+        .nested-items {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .nested-items.active {
+            max-height: 3000px;
+        }
+
+        .nested-service-item {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .nested-service-item:hover {
+            background: #fafafa;
+        }
+
+        .nested-service-name {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .add-to-cart-btn-small {
+            padding: 0.5rem 1rem;
+            background: #C63C51;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart-btn-small:hover {
+            background: #a82f42;
+            transform: translateY(-2px);
+        }
+
+        .service-note {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            padding: 0.8rem 1.5rem;
+            background: #fffbea;
+            border-left: 3px solid #f59e0b;
+        }
+
+        /* Active Category Tile */
+        .category-card.active .category-card-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #C63C51;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Clear Cart Button */
+        .clear-cart-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .clear-cart-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body>
     <div id="smooth-wrapper">
         <div id="smooth-content">
-            <!-- 🌐 Navigation -->
+            <!-- Navigation -->
             <nav class="navbar">
                 <div class="container nav-container">
                     <div class="brand">LOGO</div>
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="./html_files/studio.html">Studio</a></li>
-                        <li><a href="work.html">Work</a></li>
-                        <li><a href="./services.html" class="active">Services</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="work.html">Works</a></li>
+                        <li><a href="./html_files/studio.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </nav>
 
-            <!-- 🦋 Hero Section -->
-            <section class="hero" style="height: 50vh;">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="word">Our</span>
-                        <span class="word accent">Services</span>
-                    </h1>
-                    <p class="hero-sub">Configure your perfect package or choose from our ready-made solutions.</p>
-                    <br>
-                </div>
+            <!-- Hero Section -->
+            <section class="services-hero">
+                <h1>Build Your Perfect Package</h1>
+                <p>Choose individual services or grab a ready-made package. Everything you need to create professional
+                    music and video content.</p>
             </section>
 
-            <!-- Section Tabs Navigation -->
-            <section class="section-tabs-container">
+            <!-- Category Selection (Image Tiles) -->
+            <section class="services-container">
                 <div class="container">
-                    <div class="section-tabs">
-                        <button class="section-tab active" data-section="music">
-                            <span class="tab-icon">🎵</span>
-                            Music
-                        </button>
-                        <button class="section-tab" data-section="video">
-                            <span class="tab-icon">🎥</span>
-                            Video
-                        </button>
-                        <button class="section-tab" data-section="academy">
-                            <span class="tab-icon">🎓</span>
-                            Academy
-                        </button>
+                    <div class="section-header">
+                        <h2>Choose Your Service Category</h2>
+                        <p>Select Music Production or Video Production to see available packages and services</p>
+                    </div>
+
+                    <!-- Category Cards Grid -->
+                    <div class="category-cards-grid">
+                        <!-- Music Production Card -->
+                        <div class="category-card active" id="music-tile" onclick="filterServices('music')">
+                            <div class="category-card-bg"
+                                style="background: url('images/mixer.png'); background-size: cover; background-position: center;">
+                            </div>
+                            <div class="category-card-overlay">
+                                <h3 class="category-card-title">Music Production</h3>
+                                <p class="category-card-subtitle">Recording, Mixing & Mastering</p>
+                            </div>
+                        </div>
+
+                        <!-- Video Production Card -->
+                        <div class="category-card" id="video-tile" onclick="filterServices('video')">
+                            <div class="category-card-bg"
+                                style="background: url('images/Camera (2).png'); background-size: cover; background-position: center;">
+                            </div>
+                            <div class="category-card-overlay">
+                                <h3 class="category-card-title">Video Production</h3>
+                                <p class="category-card-subtitle">Music Videos & Content Creation</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Main Content Container with Cart -->
-            <div class="services-main-container">
-                <div class="container services-flex-container">
-
-                    <!-- Left Side: Service Sections -->
-                    <div class="services-content-area">
-
-                        <!-- 🎵 MUSIC SECTION -->
-                        <div class="section-content active" id="music-section">
-                            <h2 class="section-title">Music Production Services</h2>
-
-                            <!-- Package Cards Grid -->
-                            <div class="packages-grid">
-
-                                <!-- Basic Package -->
-                                <div class="package-card">
-                                    <h3 class="package-title">Basic</h3>
-                                    <p class="package-desc">Perfect for demos and singer-songwriters</p>
-                                    <ul class="package-features">
-                                        <li>Vocal Recording</li>
-                                        <li>Basic Mixing</li>
-                                        <li>Stereo Master</li>
-                                    </ul>
-                                    <p class="package-price">Starting at ₹XXXX</p>
-                                    <button class="package-btn" data-package="basic" data-section="music">Choose
-                                        Basic</button>
-                                </div>
-
-                                <!-- Standard Package -->
-                                <div class="package-card popular">
-                                    <span class="package-badge">Popular</span>
-                                    <h3 class="package-title">Standard</h3>
-                                    <p class="package-desc">Full production for a radio-ready single</p>
-                                    <ul class="package-features">
-                                        <li>Full Arrangement</li>
-                                        <li>Recording & Editing</li>
-                                        <li>Professional Mix & Master</li>
-                                        <li>Session Musicians</li>
-                                    </ul>
-                                    <p class="package-price">Starting at ₹XXXX</p>
-                                    <button class="package-btn" data-package="standard" data-section="music">Choose
-                                        Standard</button>
-                                </div>
-
-                                <!-- Custom Package -->
-                                <div class="package-card custom-package">
-                                    <h3 class="package-title">Custom</h3>
-                                    <p class="package-desc">Build your own perfect package</p>
-                                    <button class="package-btn expand-custom-btn" id="expand-music-custom">
-                                        Configure Custom Package
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            <!-- Custom Service Expander -->
-                            <div class="custom-expander" id="music-custom-expander" style="display: none;">
-
-                                <!-- Plan Type Selector -->
-                                <div class="plan-type-selector">
-                                    <h3>Select Your Plan Type</h3>
-                                    <div class="plan-options">
-                                        <label class="plan-option active">
-                                            <input type="radio" name="music-plan-type" value="original" checked>
-                                            <div class="plan-option-content">
-                                                <span class="plan-option-icon">✨</span>
-                                                <span class="plan-option-title">Original Song</span>
-                                                <span class="plan-option-desc">Create your unique sound from
-                                                    scratch</span>
-                                            </div>
-                                        </label>
-                                        <label class="plan-option">
-                                            <input type="radio" name="music-plan-type" value="cover">
-                                            <div class="plan-option-content">
-                                                <span class="plan-option-icon">🎼</span>
-                                                <span class="plan-option-title">Cover Song</span>
-                                                <span class="plan-option-desc">Put your spin on existing music</span>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <!-- Service Categories -->
-                                <div class="service-categories">
-                                    <h3>Select Services</h3>
-
-                                    <!-- Category 1: Songwriting & Composition -->
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">🎼</span>
-                                            Songwriting & Composition
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="music-composition" data-name="Music Composition"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Music Composition</span>
-                                                    <span class="service-description">Original melodies and musical
-                                                        arrangements</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="lyrics-writing" data-name="Lyrics Writing"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Lyrics Writing</span>
-                                                    <span class="service-description">Professional lyric writing
-                                                        services</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="complete-songwriting"
-                                                    data-name="Complete Songwriting (Lyrics & Melody)"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Complete Songwriting (Lyrics &
-                                                        Melody)</span>
-                                                    <span class="service-description">Full songwriting service combining
-                                                        lyrics with melodies</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 2: Recording -->
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">🎙️</span>
-                                            Recording
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="lead-vocal-recording" data-name="Lead Vocal Recording"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Lead Vocal Recording</span>
-                                                    <span class="service-description">Professional vocal recording with
-                                                        high-end microphones</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="group-vocal-recording"
-                                                    data-name="Group Vocal Recording" data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Group Vocal Recording</span>
-                                                    <span class="service-description">Multi-vocalist recording
-                                                        sessions</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="instrument-recording" data-name="Instrument Recording"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Instrument Recording</span>
-                                                    <span class="service-description">Live instrument recording with
-                                                        expert mic placement</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item included-service">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="creative-vocal-support"
-                                                    data-name="Creative Vocal Support" data-section="music" disabled
-                                                    checked>
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Creative Vocal Support</span>
-                                                    <span class="service-description">Included with vocal
-                                                        recording</span>
-                                                    <span class="included-badge">Included</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="vocal-coaching"
-                                                    data-name="Vocal Coaching (During Recording)" data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Vocal Coaching (During Recording)</span>
-                                                    <span class="service-description">Real-time vocal coaching and
-                                                        performance guidance</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="song-direction"
-                                                    data-name="Song Direction & Creative Guidance" data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Song Direction & Creative Guidance</span>
-                                                    <span class="service-description">Expert direction on arrangement
-                                                        and production</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 3: Music Arrangement & Programming -->
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">🎹</span>
-                                            Music Arrangement & Programming
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="full-music-arrangement"
-                                                    data-name="Full Music Arrangement & Production"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Full Music Arrangement &
-                                                        Production</span>
-                                                    <span class="service-description">Complete track production with all
-                                                        instruments</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="basic-music-arrangement"
-                                                    data-name="Basic Music Arrangement (Up to 4 Instruments)"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Basic Music Arrangement (Up to 4
-                                                        Instruments)</span>
-                                                    <span class="service-description">Simplified arrangement for
-                                                        acoustic tracks</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="piano-based-arrangement"
-                                                    data-name="Piano-Based Arrangement" data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Piano-Based Arrangement</span>
-                                                    <span class="service-description">Beautiful piano-driven
-                                                        arrangements</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 4: Post Production -->
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">🎚️</span>
-                                            Post Production
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="vocal-pitch-correction"
-                                                    data-name="Vocal Pitch Correction" data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Vocal Pitch Correction</span>
-                                                    <span class="service-description">Precise pitch correction
-                                                        maintaining natural character</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="vocal-editing"
-                                                    data-name="Vocal Editing (Comping, Timing & Cleanup)"
-                                                    data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Vocal Editing (Comping, Timing &
-                                                        Cleanup)</span>
-                                                    <span class="service-description">Detailed vocal editing including
-                                                        take compilation</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="stereo-mixing-mastering"
-                                                    data-name="Stereo Mixing & Mastering" data-section="music">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Stereo Mixing & Mastering</span>
-                                                    <span class="service-description">Professional mixing and mastering
-                                                        for streaming platforms</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- 🎥 VIDEO SECTION -->
-                        <div class="section-content" id="video-section">
-                            <h2 class="section-title">Video Production Services</h2>
-
-                            <!-- Package Cards Grid -->
-                            <div class="packages-grid">
-
-                                <!-- Basic Package -->
-                                <div class="package-card">
-                                    <h3 class="package-title">Basic</h3>
-                                    <p class="package-desc">Single camera music video essentials</p>
-                                    <ul class="package-features">
-                                        <li>1 Day Shoot</li>
-                                        <li>Single Camera</li>
-                                        <li>Basic Editing</li>
-                                        <li>Color Correction</li>
-                                    </ul>
-                                    <p class="package-price">Starting at ₹XXXX</p>
-                                    <button class="package-btn" data-package="basic" data-section="video">Choose
-                                        Basic</button>
-                                </div>
-
-                                <!-- Standard Package -->
-                                <div class="package-card popular">
-                                    <span class="package-badge">Popular</span>
-                                    <h3 class="package-title">Standard</h3>
-                                    <p class="package-desc">Multi-camera professional production</p>
-                                    <ul class="package-features">
-                                        <li>2 Day Shoot</li>
-                                        <li>Multi-Camera Setup</li>
-                                        <li>Professional Editing</li>
-                                        <li>Color Grading</li>
-                                        <li>Motion Graphics</li>
-                                    </ul>
-                                    <p class="package-price">Starting at ₹XXXX</p>
-                                    <button class="package-btn" data-package="standard" data-section="video">Choose
-                                        Standard</button>
-                                </div>
-
-                                <!-- Custom Package -->
-                                <div class="package-card custom-package">
-                                    <h3 class="package-title">Custom</h3>
-                                    <p class="package-desc">Build your own video package</p>
-                                    <button class="package-btn expand-custom-btn" id="expand-video-custom">
-                                        Configure Custom Package
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            <!-- Custom Service Expander -->
-                            <div class="custom-expander" id="video-custom-expander" style="display: none;">
-
-                                <div class="service-categories">
-                                    <h3>Select Video Services</h3>
-
-                                    <!-- Placeholder Video Services -->
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">📝</span>
-                                            Pre-Production
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="concept-development" data-name="Concept Development"
-                                                    data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Concept Development</span>
-                                                    <span class="service-description">Creative ideation and
-                                                        storyboarding</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="scriptwriting" data-name="Scriptwriting"
-                                                    data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Scriptwriting</span>
-                                                    <span class="service-description">Professional script
-                                                        development</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">🎬</span>
-                                            Production
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox" data-service="filming"
-                                                    data-name="Professional Filming" data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Professional Filming</span>
-                                                    <span class="service-description">4K camera and lighting
-                                                        setup</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox" data-service="direction"
-                                                    data-name="Direction & Coordination" data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Direction & Coordination</span>
-                                                    <span class="service-description">On-set creative direction</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="service-category">
-                                        <h4 class="category-title">
-                                            <span class="category-icon">✂️</span>
-                                            Post-Production
-                                        </h4>
-                                        <div class="service-checkbox-group">
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="video-editing" data-name="Video Editing"
-                                                    data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Video Editing</span>
-                                                    <span class="service-description">Professional cutting and
-                                                        sequencing</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="color-grading-video" data-name="Color Grading"
-                                                    data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">Color Grading</span>
-                                                    <span class="service-description">Cinematic color correction and
-                                                        grading</span>
-                                                </div>
-                                            </label>
-                                            <label class="service-checkbox-item">
-                                                <input type="checkbox" class="service-checkbox"
-                                                    data-service="vfx-motion-graphics" data-name="VFX & Motion Graphics"
-                                                    data-section="video">
-                                                <span class="checkbox-custom"></span>
-                                                <div class="service-info">
-                                                    <span class="service-name">VFX & Motion Graphics</span>
-                                                    <span class="service-description">Visual effects and animated
-                                                        elements</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- 🎓 ACADEMY SECTION -->
-                        <div class="section-content" id="academy-section">
-                            <h2 class="section-title">Academy Programs</h2>
-
-                            <!-- Academy Cards Grid -->
-                            <div class="academy-cards-grid">
-
-                                <div class="academy-card">
-                                    <span class="academy-icon">⚡</span>
-                                    <h3 class="academy-title">Workshop</h3>
-                                    <p class="academy-desc">Intensive weekend learning sessions focused on specific
-                                        topics</p>
-                                    <ul class="academy-features">
-                                        <li>2 Days Hands-on Training</li>
-                                        <li>Specific Topic Focus</li>
-                                        <li>Certificate of Completion</li>
-                                        <li>Small Batch Size</li>
-                                    </ul>
-                                    <p class="academy-price">₹XXXX / Workshop</p>
-                                    <div class="academy-actions">
-                                        <a href="contact.html" class="academy-btn primary">Enroll Now</a>
-                                        <button class="academy-btn secondary">Learn More</button>
-                                    </div>
-                                </div>
-
-                                <div class="academy-card featured">
-                                    <span class="academy-badge">Recommended</span>
-                                    <span class="academy-icon">🎓</span>
-                                    <h3 class="academy-title">Full Course</h3>
-                                    <p class="academy-desc">Complete Audio Engineering Program with certification</p>
-                                    <ul class="academy-features">
-                                        <li>3 Months Duration</li>
-                                        <li>1-on-1 Mentorship</li>
-                                        <li>Studio Internship</li>
-                                        <li>Placement Assistance</li>
-                                        <li>Industry Certification</li>
-                                    </ul>
-                                    <p class="academy-price">Starting at ₹XXXX</p>
-                                    <div class="academy-actions">
-                                        <a href="contact.html" class="academy-btn primary">Enroll Now</a>
-                                        <button class="academy-btn secondary">View Curriculum</button>
-                                    </div>
-                                </div>
-
-                                <div class="academy-card">
-                                    <span class="academy-icon">👨‍🏫</span>
-                                    <h3 class="academy-title">One-on-One Mentorship</h3>
-                                    <p class="academy-desc">Personalized training tailored to your specific goals</p>
-                                    <ul class="academy-features">
-                                        <li>Flexible Schedule</li>
-                                        <li>Customized Curriculum</li>
-                                        <li>Direct Studio Access</li>
-                                        <li>Portfolio Development</li>
-                                    </ul>
-                                    <p class="academy-price">Custom Pricing</p>
-                                    <div class="academy-actions">
-                                        <a href="contact.html" class="academy-btn primary">Enroll Now</a>
-                                        <button class="academy-btn secondary">Learn More</button>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
+            <!-- Packages Section -->
+            <section class="packages-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Ready-Made Packages</h2>
+                        <p>Pre-configured bundles for music and video production</p>
                     </div>
 
-                    <!-- Right Side: Cart Panel -->
-                    <aside class="cart-panel" id="cart-panel">
-                        <div class="cart-panel-inner">
-                            <h3 class="cart-header">
-                                <span class="cart-icon">🛒</span>
-                                Your Selection
-                            </h3>
-
-                            <div class="cart-meta" id="cart-meta">
-                                <p class="cart-section-display">Section: <span id="cart-section-name">Music</span></p>
-                                <p class="cart-plan-display" id="cart-plan-display" style="display: none;">Plan: <span
-                                        id="cart-plan-type">Original Song</span></p>
-                                <p class="cart-package-display" id="cart-package-display" style="display: none;">
-                                    Package: <span id="cart-package-name">-</span></p>
+                    <!-- Music Packages -->
+                    <div class="music-packages" data-category="music">
+                        <!-- Basic Music Package -->
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Basic Music Package</h3>
                             </div>
-
-                            <div class="cart-items" id="cart-items">
-                                <p class="cart-empty">No services selected yet. Choose a package or configure a custom
-                                    selection.</p>
-                            </div>
-
-                            <div class="cart-footer">
-                                <div class="cart-total" id="cart-total">
-                                    <span class="total-label">Total:</span>
-                                    <span class="total-value">Contact for Quote</span>
-                                </div>
-                                <button class="cart-order-btn" id="order-btn" disabled>
-                                    <span class="btn-icon">💬</span>
-                                    Order via WhatsApp
-                                </button>
-                                <button class="cart-clear-btn" id="clear-cart-btn" style="display: none;">
-                                    Clear Selection
-                                </button>
+                            <p class="package-description">Perfect for demos and singer-songwriters</p>
+                            <ul class="package-features">
+                                <li>Vocal Recording (up to 3 hours)</li>
+                                <li>Basic Mixing</li>
+                                <li>Stereo Master</li>
+                                <li>2 Revisions Included</li>
+                            </ul>
+                            <div class="package-footer">
+                                <span class="package-price">Starting at ₹5,000</span>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Basic Music Package', 'Package')">Add to Cart</button>
                             </div>
                         </div>
-                    </aside>
 
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <section class="contact" style="padding-bottom: 50px; padding-top: 50px;">
-                <div class="container contact-inner">
-                    <div class="social-links">
-                        <a href="#">Instagram</a>
-                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank">Youtube</a>
-                        <a href="#">Facebook</a>
+                        <!-- Standard Music Package -->
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Standard Music Package</h3>
+                                <span class="package-badge">Most Popular</span>
+                            </div>
+                            <p class="package-description">Full production for a radio-ready single</p>
+                            <ul class="package-features">
+                                <li>Full Music Arrangement</li>
+                                <li>Vocal Recording & Production</li>
+                                <li>Professional Mixing</li>
+                                <li>Mastering</li>
+                                <li>5 Revisions Included</li>
+                            </ul>
+                            <div class="package-footer">
+                                <span class="package-price">Starting at ₹12,000</span>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Standard Music Package', 'Package')">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
-                    <p style="margin-top: 20px; color: #555; font-size: 0.9rem;">&copy; 2024 Ayush Studio. All rights
-                        reserved.</p>
+
+                    <!-- Video Packages -->
+                    <div class="video-packages hidden" data-category="video">
+                        <!-- Basic Video Package -->
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Basic Video Package</h3>
+                            </div>
+                            <p class="package-description">Perfect for social media content</p>
+                            <ul class="package-features">
+                                <li>1-2 Minute Video</li>
+                                <li>Single Location Shoot</li>
+                                <li>Basic Editing</li>
+                                <li>Color Grading</li>
+                                <li>2 Revisions Included</li>
+                            </ul>
+                            <div class="package-footer">
+                                <span class="package-price">Starting at ₹15,000</span>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Basic Video Package', 'Package')">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Standard Video Package -->
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Standard Video Package</h3>
+                                <span class="package-badge">Most Popular</span>
+                            </div>
+                            <p class="package-description">Professional music video production</p>
+                            <ul class="package-features">
+                                <li>3-5 Minute Video</li>
+                                <li>Multiple Location Shoots</li>
+                                <li>Professional Editing</li>
+                                <li>Color Grading & VFX</li>
+                                <li>5 Revisions Included</li>
+                            </ul>
+                            <div class="package-footer">
+                                <span class="package-price">Starting at ₹35,000</span>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Standard Video Package', 'Package')">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+            <!-- Custom Build Services Section -->
+            <section class="services-container">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Custom Build Your Package</h2>
+                        <p>Select individual services to create your perfect package</p>
+                    </div>
+
+                    <!-- Music Services -->
+                    <div class="music-services" data-category="music">
+                        <!-- Original Song Services -->
+                        <div class="sub-service-item" style="display: block; padding: 0;">
+                            <div class="nested-sub-service">
+                                <div class="nested-header" onclick="toggleNested(this, event)">
+                                    <h5>Original Song</h5>
+                                    <span class="nested-icon">▼</span>
+                                </div>
+                                <p class="service-note">From idea to release-ready track, we handle the complete
+                                    original music production process.</p>
+                                <div class="nested-items">
+
+                                    <!-- Songwriting & Composition -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f9f9f9; border-bottom: 2px solid #e0e0e0;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">
+                                            Songwriting & Composition</h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Music Composition</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Music Composition', 'Original Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Lyrics Writing</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Lyrics Writing', 'Original Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Complete Songwriting (Lyrics &
+                                                Melody)</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Complete Songwriting', 'Original Song')">Add</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recording -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f9f9f9; border-bottom: 2px solid #e0e0e0;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">
+                                            Recording <span
+                                                style="font-size: 0.85rem; color: #666; font-weight: normal;">(Charged
+                                                on hourly basis)</span></h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Lead Vocal Recording</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Lead Vocal Recording', 'Original Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Group Vocal Recording</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Group Vocal Recording', 'Original Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Instrument Recording</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Instrument Recording', 'Original Song')">Add</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Creative Vocal Support -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f0fdf4; border-bottom: 2px solid #86efac;">
+                                        <h6 style="font-size: 1rem; color: #16a34a; margin-bottom: 0.5rem;">Creative
+                                            Vocal Support (Included) ✓</h6>
+                                        <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">
+                                            • Vocal Coaching (During Recording)<br>
+                                            • Song Direction & Creative Guidance
+                                        </p>
+                                    </div>
+
+                                    <!-- Music Arrangement & Programming -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f9f9f9; border-bottom: 2px solid #e0e0e0;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">Music
+                                            Arrangement & Programming</h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Full Music Arrangement &
+                                                Production</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Full Music Arrangement', 'Original Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Semi Music Arrangement (Up to 4
+                                                Instruments)</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Basic Music Arrangement', 'Original Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Piano Based Arrangement</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Piano Based Arrangement', 'Original Song')">Add</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Post Production -->
+                                    <div style="padding: 1rem 1.5rem; background: #f9f9f9;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">Post
+                                            Production</h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Vocal Pitch Correction</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Vocal Pitch Correction', 'Original Song')">Add</button>
+                                        </div>
+                                        <!-- <div class="nested-service-item">
+                                            <span class="nested-service-name">Vocal Editing (Comping, Timing &
+                                                Cleanup)</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Vocal Editing', 'Original Song')">Add</button>
+                                        </div> -->
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Stereo Mixing & Mastering</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Stereo Mixing & Mastering', 'Original Song')">Add</button>
+                                        </div>
+                                        <div
+                                            style="padding: 1rem 1.5rem; background: #f0fdf4; border-bottom: 2px solid #86efac;">
+                                            <h6 style="font-size: 1rem; color: #16a34a; margin-bottom: 0.5rem;">Included
+                                                with 'Stereo Mixing & Mastering' ✓</h6>
+                                            <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">
+                                                • Vocal Editing (Comping, Timing &
+                                                Cleanup)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cover Song -->
+                        <div class="sub-service-item" style="display: block; padding: 0;">
+                            <div class="nested-sub-service">
+                                <div class="nested-header" onclick="toggleNested(this, event)">
+                                    <h5> Cover Song</h5>
+                                    <span class="nested-icon">▼</span>
+                                </div>
+                                <p class="service-note">Professional cover song production with your unique
+                                    interpretation.</p>
+                                <div class="nested-items">
+
+                                    <!-- Recording -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f9f9f9; border-bottom: 2px solid #e0e0e0;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">
+                                            Recording</h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Lead Vocal Recording</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Lead Vocal Recording', 'Cover Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Group Vocal Recording</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Group Vocal Recording', 'Cover Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Instrument Recording</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Instrument Recording', 'Cover Song')">Add</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Creative Vocal Support -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f0fdf4; border-bottom: 2px solid #86efac;">
+                                        <h6 style="font-size: 1rem; color: #16a34a; margin-bottom: 0.5rem;">Creative
+                                            Vocal Support (Included) ✓</h6>
+                                        <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">
+                                            • Vocal Coaching (During Recording)<br>
+                                            • Song Direction & Creative Guidance
+                                        </p>
+                                    </div>
+
+                                    <!-- Music Arrangement & Programming -->
+                                    <div
+                                        style="padding: 1rem 1.5rem; background: #f9f9f9; border-bottom: 2px solid #e0e0e0;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">Music
+                                            Arrangement & Programming</h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Full Music Arrangement &
+                                                Production</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Full Music Arrangement', 'Cover Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Semi Music Arrangement (Up to 4
+                                                Instruments)</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Basic Music Arrangement', 'Cover Song')">Add</button>
+                                        </div>
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Piano Based Arrangement</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Piano Based Arrangement', 'Cover Song')">Add</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Post Production -->
+                                    <div style="padding: 1rem 1.5rem; background: #f9f9f9;">
+                                        <h6 style="font-size: 1rem; color: #C63C51; margin-bottom: 0.8rem;">Post
+                                            Production</h6>
+
+                                        <div class="nested-service-item" style="border-top: none;">
+                                            <span class="nested-service-name">Vocal Pitch Correction</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Vocal Pitch Correction', 'Cover Song')">Add</button>
+                                        </div>
+                                        <!-- <div class="nested-service-item">
+                                            <span class="nested-service-name">Vocal Editing (Comping, Timing &
+                                                Cleanup)</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Vocal Editing', 'Cover Song')">Add</button>
+                                        </div> -->
+                                        <div class="nested-service-item">
+                                            <span class="nested-service-name">Stereo Mixing & Mastering</span>
+                                            <button class="add-to-cart-btn-small"
+                                                onclick="addToCart('Stereo Mixing & Mastering', 'Cover Song')">Add</button>
+                                        </div>
+
+                                        <div
+                                            style="padding: 1rem 1.5rem; background: #f0fdf4; border-bottom: 2px solid #86efac;">
+                                            <h6 style="font-size: 1rem; color: #16a34a; margin-bottom: 0.5rem;">Included
+                                                with 'Stereo Mixing & Mastering' ✓</h6>
+                                            <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">
+                                                • Vocal Editing (Comping, Timing &
+                                                Cleanup)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advertisements, Commercials & Jingles -->
+                        <div class="sub-service-item">
+                            <div class="sub-service-info">
+                                <h4> Advertisements, Commercials & Jingles</h4>
+                                <p>Custom music and audio for your brand and marketing campaigns</p>
+                            </div>
+                            <button class="add-to-cart-btn"
+                                onclick="addToCart('Advertisements & Jingles', 'Music Production')">Add to
+                                Cart</button>
+                        </div>
+
+                        <!-- Poetry & Recitation -->
+                        <div class="sub-service-item">
+                            <div class="sub-service-info">
+                                <h4> Poetry & Recitation</h4>
+                                <p>Professional recording and production for poetry and spoken word performances</p>
+                            </div>
+                            <button class="add-to-cart-btn"
+                                onclick="addToCart('Poetry & Recitation', 'Music Production')">Add to
+                                Cart</button>
+                        </div>
+
+                        <!-- Audio Stories & Audiobooks -->
+                        <div class="sub-service-item">
+                            <div class="sub-service-info">
+                                <h4> Audio Stories & Audiobooks</h4>
+                                <p>Complete audiobook production with narration, sound design, and mastering</p>
+                            </div>
+                            <button class="add-to-cart-btn"
+                                onclick="addToCart('Audio Stories & Audiobooks', 'Music Production')">Add to
+                                Cart</button>
+                        </div>
+                    </div>
+                </div>
 
         </div>
     </div>
-    <!--Smooth scrolling-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
-        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
-        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"
-        integrity="sha512-t4hwZimhnCKT3YLAsEcAcRDkngVFfCcUIfNLIjklrIZAZKD+GfQMP7HbRcsVHxNS48WRBSywNU1uSM2zzLQt1Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </div>
 
-    <!-- ⚙️ Script -->
+    <!-- Video Services -->
+    <div class="video-services hidden" data-category="video">
+        <div class="service-category-item">
+            <div class="sub-services" style="display: block;">
+                <div class="sub-service-item">
+                    <div class="sub-service-info">
+                        <h4>Music Video</h4>
+                        <p>Concept to final cut - complete music video production</p>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Music Video', 'Video Production')">Add
+                        to
+                        Cart</button>
+                </div>
+                <div class="sub-service-item">
+                    <div class="sub-service-info">
+                        <h4>Live Session Recording</h4>
+                        <p>Multi-camera live performance capture and editing</p>
+                    </div>
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart('Live Session Recording', 'Video Production')">Add to
+                        Cart</button>
+                </div>
+                <div class="sub-service-item">
+                    <div class="sub-service-info">
+                        <h4>Lyric Video</h4>
+                        <p>Engaging lyric videos for YouTube and social media</p>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Lyric Video', 'Video Production')">Add
+                        to
+                        Cart</button>
+                </div>
+                <div class="sub-service-item">
+                    <div class="sub-service-info">
+                        <h4>Video Editing</h4>
+                        <p>Professional editing with color grading and effects</p>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Video Editing', 'Video Production')">Add
+                        to
+                        Cart</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="contact" style="padding-bottom: 50px; padding-top: 50px;">
+        <div class="container contact-inner">
+            <div class="social-links">
+                <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw==" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
+                        class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
+            </div>
+            <p style="margin-top: 20px; color: #555; font-size: 0.9rem;">&copy; 2026 Ayush Studio. All rights
+                reserved.</p>
+        </div>
+    </section>
+
+    </div>
+    </div>
+
+    <!-- Floating Cart Widget -->
+    <div class="cart-widget" id="cartWidget" onclick="openCart()">
+        <span>🛒 Cart</span>
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <span class="close-cart" onclick="closeCart()">✕</span>
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <button class="clear-cart-btn" onclick="clearCart()">
+                Clear Cart
+            </button>
+            <button class="whatsapp-btn" onclick="sendToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i>
+                Order via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"></script>
     <script src="script.js"></script>
-    <script src="services-cart.js"></script>
+
+    <script>
+        let cart = [];
+
+        function toggleCategory(header) {
+            const subServices = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+
+            // Find which card was clicked based on the header ID
+            const cardToActivate = header.id === 'music-category-header' ?
+                document.querySelector('.category-card:nth-child(1)') :
+                document.querySelector('.category-card:nth-child(2)');
+
+            // Close all categories and remove active from all cards
+            document.querySelectorAll('.category-header').forEach(h => h.classList.remove('active'));
+            document.querySelectorAll('.sub-services').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+
+            // Open clicked category if it wasn't active
+            if (!isActive) {
+                header.classList.add('active');
+                subServices.classList.add('active');
+                if (cardToActivate) {
+                    cardToActivate.classList.add('active');
+                }
+            }
+        }
+
+        function toggleNested(header, event) {
+            event.stopPropagation(); // Prevent parent category from toggling
+            const nestedItems = header.parentElement.querySelector('.nested-items');
+            const isActive = header.classList.contains('active');
+
+            if (isActive) {
+                header.classList.remove('active');
+                nestedItems.classList.remove('active');
+            } else {
+                header.classList.add('active');
+                nestedItems.classList.add('active');
+            }
+        }
+
+        // Filter services based on category selection
+        function filterServices(category) {
+            // Update active tile
+            document.querySelectorAll('.category-card').forEach(tile => {
+                tile.classList.remove('active');
+            });
+            document.getElementById(category + '-tile').classList.add('active');
+
+            // Show/hide music packages
+            const musicPackages = document.querySelector('.music-packages');
+            const videoPackages = document.querySelector('.video-packages');
+
+            if (category === 'music') {
+                musicPackages.classList.remove('hidden');
+                videoPackages.classList.add('hidden');
+            } else {
+                musicPackages.classList.add('hidden');
+                videoPackages.classList.remove('hidden');
+            }
+
+            // Show/hide custom services
+            const musicServices = document.querySelector('.music-services');
+            const videoServices = document.querySelector('.video-services');
+
+            if (category === 'music') {
+                musicServices.classList.remove('hidden');
+                videoServices.classList.add('hidden');
+            } else {
+                musicServices.classList.add('hidden');
+                videoServices.classList.remove('hidden');
+            }
+        }
+
+        function addToCart(serviceName, category) {
+            // Check if item already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === serviceName && item.category === category);
+
+            if (existingIndex !== -1) {
+                // Item exists, remove it (toggle off)
+                cart.splice(existingIndex, 1);
+            } else {
+                // Item doesn't exist, add it (toggle on)
+                const item = { name: serviceName, category: category };
+                cart.push(item);
+            }
+
+            updateCart();
+            updateButtonStates();
+
+            // Trigger shake animation only when adding
+            if (existingIndex === -1) {
+                const cartWidget = document.getElementById('cartWidget');
+                cartWidget.classList.add('shake');
+                setTimeout(() => {
+                    cartWidget.classList.remove('shake');
+                }, 500);
+            }
+        }
+
+        function addToCartWithHours(serviceName, category, inputId) {
+            const hoursInput = document.getElementById(inputId);
+            const hours = parseInt(hoursInput.value) || 1;
+
+            if (hours < 1 || hours > 24) {
+                alert('Please enter hours between 1 and 24');
+                return;
+            }
+
+            // Check if item already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === serviceName && item.category === category && item.hours);
+
+            if (existingIndex !== -1) {
+                // Item exists, remove it (toggle off)
+                cart.splice(existingIndex, 1);
+            } else {
+                // Item doesn't exist, add it with hours (toggle on)
+                const item = { name: serviceName, category: category, hours: hours };
+                cart.push(item);
+            }
+
+            updateCart();
+            updateButtonStates();
+
+            // Trigger shake animation only when adding
+            if (existingIndex === -1) {
+                const cartWidget = document.getElementById('cartWidget');
+                cartWidget.classList.add('shake');
+                setTimeout(() => {
+                    cartWidget.classList.remove('shake');
+                }, 500);
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            updateButtonStates();
+        }
+
+        function updateButtonStates() {
+            // Get all add-to-cart buttons
+            const allButtons = document.querySelectorAll('.add-to-cart-btn, .add-to-cart-btn-small');
+
+            allButtons.forEach(button => {
+                const onclick = button.getAttribute('onclick');
+                if (!onclick) return;
+
+                // Extract service name and category from onclick
+                const match = onclick.match(/addToCart\('([^']+)',\s*'([^']+)'\)/);
+                if (!match) return;
+
+                const serviceName = match[1];
+                const category = match[2];
+
+                // Check if this service is in cart
+                const inCart = cart.some(item => item.name === serviceName && item.category === category);
+
+                if (inCart) {
+                    button.disabled = false; // Keep button clickable for toggle
+                    button.textContent = button.classList.contains('add-to-cart-btn-small') ? 'Remove' : 'Remove from Cart';
+                    button.style.background = '#dc2626'; // Red color for remove
+                } else {
+                    button.disabled = false;
+                    button.style.background = ''; // Reset to default
+                    // Restore original text based on button class
+                    if (button.classList.contains('add-to-cart-btn-small')) {
+                        button.textContent = 'Add';
+                    } else {
+                        button.textContent = 'Add to Cart';
+                    }
+                }
+            });
+        }
+
+        function updateCart() {
+            const cartWidget = document.getElementById('cartWidget');
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+
+            cartCount.textContent = cart.length;
+
+            if (cart.length > 0) {
+                cartWidget.classList.add('active');
+            } else {
+                cartWidget.classList.remove('active');
+            }
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="cart-empty">Your cart is empty. Add some services!</div>';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-category">${item.category}</div>
+                        </div>
+                        <div class="remove-item" onclick="removeFromCart(${index})">✕</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('active');
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+
+            if (confirm('Are you sure you want to clear all items from your cart?')) {
+                cart = [];
+                updateCart();
+                updateButtonStates();
+            }
+        }
+
+        function sendToWhatsApp() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            let message = 'Hi! I would like to order the following services:\n\n';
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} (${item.category})\n`;
+            });
+            message += '\nPlease provide me with a quote. Thank you!';
+
+            const whatsappURL = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('cartModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeCart();
+            }
+        });
+    </script>
 </body>
 
 </html>

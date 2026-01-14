@@ -146,6 +146,30 @@ window.addEventListener("load", () => {
         }
       });
 
+      // Update layout after GSAP animation completes
+      setTimeout(() => {
+        updateProjectLayout();
+      }, 500);
+    };
+
+    // Function to update left/right alignment for visible projects only
+    const updateProjectLayout = () => {
+      let visibleIndex = 0;
+      workItems.forEach(item => {
+        const isVisible = window.getComputedStyle(item).display !== 'none';
+
+        if (isVisible) {
+          // Apply flex-direction based on visible index
+          if (visibleIndex % 2 === 0) {
+            item.style.flexDirection = 'row'; // Left align (image left, text right)
+          } else {
+            item.style.flexDirection = 'row-reverse'; // Right align (image right, text left)
+          }
+
+          visibleIndex++;
+        }
+      });
+
       // Refresh ScrollTrigger after filtering (wait for animation)
       setTimeout(() => ScrollTrigger.refresh(), 500);
     };
@@ -164,6 +188,9 @@ window.addEventListener("load", () => {
         filterItems();
       });
     });
+
+    // Initialize layout on page load
+    updateProjectLayout();
   }
 
   // ✅ Accordion Functionality for Services Page

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services — Ayush Studio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icon Styles -->
+    <style>
+        .fa-instagram {
+            font-size: 30px;
+            color: #E1306C;
+        }
+
+        .fa-youtube {
+            font-size: 30px;
+            color: #C4302B;
+        }
+
+        .fa-facebook {
+            font-size: 30px;
+            color: #3B5998;
+        }
+
+        /* Services Page Specific Styles */
+        .services-intro {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+
+        .services-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #111;
+        }
+
+        .services-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .service-category {
+            padding: 80px 0;
+        }
+
+        .service-category:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .category-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 2.2rem;
+            color: #C63C51;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #C63C51;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item h4 {
+            font-size: 1.3rem;
+            color: #111;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .pricing-note {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #fff 0%, #fefefe 100%);
+            border-radius: 12px;
+            border: 2px solid #C63C51;
+        }
+
+        .pricing-note h3 {
+            font-size: 1.5rem;
+            color: #111;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-note p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #111 0%, #333 100%);
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+
+            .services-intro h2,
+            .category-title {
+                font-size: 2rem;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Navigation -->
+            <nav class="navbar">
+                <div class="container nav-container">
+                    <div class="brand">LOGO</div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="work.html">Works</a></li>
+                        <li><a href="./html_files/studio.html">Studio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <section class="hero" style="height: 50vh;">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="word">What</span>
+                        <span class="word">We</span>
+                        <span class="word accent">Do</span>
+                    </h1>
+                    <p class="hero-sub">Turning your creative vision into sonic reality</p>
+                </div>
+            </section>
+
+            <!-- Intro Section -->
+            <section class="services-intro">
+                <div class="container">
+                    <h2>We're here to make your music sound incredible.</h2>
+                    <p>Whether you're recording your first track or finishing an album, we offer everything from
+                        professional recording and mixing to music production and video services. Every project is
+                        unique, so we tailor our approach to what YOU need.</p>
+                </div>
+            </section>
+
+            <!-- Music Production Services -->
+            <section class="service-category">
+                <div class="container">
+                    <div class="category-header">
+                        <h2 class="category-title">🎵 Music Production</h2>
+                        <p class="category-description">From the first note to the final master, we handle it all</p>
+                    </div>
+
+                    <div class="services-list">
+                        <div class="service-item">
+                            <h4>Recording</h4>
+                            <p>Capture your performance in our professionally treated space. We work with vocals,
+                                instruments, and live sessions to get the perfect take.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Music Arrangement</h4>
+                            <p>Need help bringing your song to life? We'll arrange instrumentation, program beats,
+                                and build the perfect soundscape for your track.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Mixing</h4>
+                            <p>We balance, polish, and refine your tracks to sound clear, punchy, and professional
+                                on any system—from earbuds to club speakers.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Mastering</h4>
+                            <p>The final touch that makes your music shine. We ensure your track is loud, clear,
+                                and ready for streaming platforms and radio.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Vocal Production</h4>
+                            <p>From recording to tuning and effects, we make sure your vocals sit perfectly in the
+                                mix and convey the emotion you're aiming for.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Beat Production</h4>
+                            <p>Custom beats tailored to your style. Whether you need something mellow or hard-hitting,
+                                we create instrumentals that match your vision.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Production Services -->
+            <section class="service-category">
+                <div class="container">
+                    <div class="category-header">
+                        <h2 class="category-title">🎥 Video Production</h2>
+                        <p class="category-description">Visuals that complement your sound</p>
+                    </div>
+
+                    <div class="services-list">
+                        <div class="service-item">
+                            <h4>Music Videos</h4>
+                            <p>Tell your story visually. We handle concept development, filming, and editing to
+                                create music videos that capture attention.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Live Session Recording</h4>
+                            <p>Capture your live performance with multi-camera setups and professional editing.
+                                Perfect for promo content or YouTube.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Lyric Videos</h4>
+                            <p>Simple, effective, and engaging. We create lyric videos that keep viewers connected
+                                to your music.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Video Editing</h4>
+                            <p>Already have footage? We'll edit it into something polished with color grading,
+                                effects, and motion graphics.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Academy Services -->
+            <section class="service-category">
+                <div class="container">
+                    <div class="category-header">
+                        <h2 class="category-title">🎓 Academy & Training</h2>
+                        <p class="category-description">Learn the craft from industry professionals</p>
+                    </div>
+
+                    <div class="services-list">
+                        <div class="service-item">
+                            <h4>Audio Engineering Courses</h4>
+                            <p>Master the fundamentals of recording, mixing, and signal flow. Hands-on training
+                                with real studio equipment.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Music Production Workshops</h4>
+                            <p>From DAW basics to advanced production techniques. Learn arrangement, synthesis,
+                                and workflow optimization.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>One-on-One Mentorship</h4>
+                            <p>Personalized guidance tailored to your goals. Whether you're building a portfolio
+                                or setting up your own studio, we're here to help.</p>
+                        </div>
+
+                        <div class="service-item">
+                            <h4>Vocal Training</h4>
+                            <p>Improve your vocal technique, breath control, and performance. Perfect for singers
+                                looking to refine their craft.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Note -->
+            <section class="service-category">
+                <div class="container">
+                    <div class="pricing-note">
+                        <h3>Every Project is Different</h3>
+                        <p>We don't believe in one-size-fits-all pricing. Your needs are unique, and we want to
+                            give you the best value. Let's chat about your project, and we'll put together a plan
+                            that works for you.</p>
+                        <a href="contact.html" class="cta-btn">Get in Touch</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="container">
+                    <h2>Ready to Get Started?</h2>
+                    <p>Let's create something amazing together.</p>
+                    <a href="contact.html" class="cta-btn" style="background: #C63C51;">Contact Us</a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section class="contact" style="padding-bottom: 50px; padding-top: 50px;">
+                <div class="container contact-inner">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw=="
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #555; font-size: 0.9rem;">&copy; 2026 Ayush Studio. All rights
+                        reserved.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!--Smooth scrolling-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"
+        integrity="sha512-t4hwZimhnCKT3YLAsEcAcRDkngVFfCcUIfNLIjklrIZAZKD+GfQMP7HbRcsVHxNS48WRBSywNU1uSM2zzLQt1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

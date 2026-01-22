@@ -13,19 +13,25 @@
     <link rel="stylesheet" href="style.css" />
 
     <style>
-        .fa-instagram {
-            font-size: 30px;
-            color: #E1306C;
-        }
-
-        .fa-youtube {
-            font-size: 30px;
-            color: #C4302B;
-        }
-
+        .fa-instagram,
+        .fa-youtube,
         .fa-facebook {
             font-size: 30px;
-            color: #3B5998;
+            color: #999;
+        }
+
+        /* Make footer more compact */
+        .contact {
+            padding: 50px 0 !important;
+        }
+
+        .contact h2 {
+            font-size: 1.8rem !important;
+        }
+
+        .contact .cta-btn {
+            font-size: 1rem !important;
+            padding: 0.8rem 1.8rem !important;
         }
 
         /* Services Page Styles */
@@ -36,6 +42,7 @@
             background-size: cover;
             background-position: center;
             color: #fff;
+            transition: background 1.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .services-hero h1 {
@@ -1255,77 +1262,77 @@
                     </div>
                 </div>
 
-        </div>
-    </div>
-    </div>
 
-    <!-- Video Services -->
-    <div class="video-services hidden" data-category="video">
-        <div class="service-category-item">
-            <div class="sub-services" style="display: block;">
-                <div class="sub-service-item">
-                    <div class="sub-service-info">
-                        <h4>Music Video</h4>
-                        <p>Concept to final cut - complete music video production</p>
+                <!-- Video Services -->
+                <div class="video-services hidden" data-category="video">
+                    <div class="service-category-item">
+                        <div class="sub-services" style="display: block;">
+                            <div class="sub-service-item">
+                                <div class="sub-service-info">
+                                    <h4>Music Video</h4>
+                                    <p>Concept to final cut - complete music video production</p>
+                                </div>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Music Video', 'Video Production')">Add
+                                    to
+                                    Cart</button>
+                            </div>
+                            <div class="sub-service-item">
+                                <div class="sub-service-info">
+                                    <h4>Live Session Recording</h4>
+                                    <p>Multi-camera live performance capture and editing</p>
+                                </div>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Live Session Recording', 'Video Production')">Add to
+                                    Cart</button>
+                            </div>
+                            <div class="sub-service-item">
+                                <div class="sub-service-info">
+                                    <h4>Lyric Video</h4>
+                                    <p>Engaging lyric videos for YouTube and social media</p>
+                                </div>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Lyric Video', 'Video Production')">Add
+                                    to
+                                    Cart</button>
+                            </div>
+                            <div class="sub-service-item">
+                                <div class="sub-service-info">
+                                    <h4>Video Editing</h4>
+                                    <p>Professional editing with color grading and effects</p>
+                                </div>
+                                <button class="add-to-cart-btn"
+                                    onclick="addToCart('Video Editing', 'Video Production')">Add
+                                    to
+                                    Cart</button>
+                            </div>
+                        </div>
                     </div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Music Video', 'Video Production')">Add
-                        to
-                        Cart</button>
+
+
                 </div>
-                <div class="sub-service-item">
-                    <div class="sub-service-info">
-                        <h4>Live Session Recording</h4>
-                        <p>Multi-camera live performance capture and editing</p>
+            </section>
+
+            <!-- 📞 Contact Section / Footer -->
+            <section class="contact">
+                <div class="container contact-inner">
+                    <h2>Ready to bring your project to life?<br> Let's discuss your service needs.
+                    </h2>
+                    <a href="mailto:ayush.studio@gmail.com" class="cta-btn">ayush.studio@gmail.com</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw=="
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a>
                     </div>
-                    <button class="add-to-cart-btn"
-                        onclick="addToCart('Live Session Recording', 'Video Production')">Add to
-                        Cart</button>
+                    <p style="margin-top: 20px; color: #999; font-size: 0.9rem;">&copy; 2026 Ayush Studio. All rights
+                        reserved.</p>
                 </div>
-                <div class="sub-service-item">
-                    <div class="sub-service-info">
-                        <h4>Lyric Video</h4>
-                        <p>Engaging lyric videos for YouTube and social media</p>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Lyric Video', 'Video Production')">Add
-                        to
-                        Cart</button>
-                </div>
-                <div class="sub-service-item">
-                    <div class="sub-service-info">
-                        <h4>Video Editing</h4>
-                        <p>Professional editing with color grading and effects</p>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Video Editing', 'Video Production')">Add
-                        to
-                        Cart</button>
-                </div>
-            </div>
-        </div>
+            </section>
 
-
-    </div>
-    </section>
-
-    <!-- 📞 Contact Section / Footer -->
-    <section class="contact">
-        <div class="container contact-inner">
-            <h2>Crafting sonic narratives and visual symphonies.<br> Let's turn your vision into undeniable art.
-            </h2>
-            <a href="mailto:ayush.studio@gmail.com" class="cta-btn">ayush.studio@gmail.com</a>
-            <div class="social-links">
-                <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw==" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
-                        class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
-                        class="fa-brands fa-facebook"></i></a>
-            </div>
-            <p style="margin-top: 20px; color: #999; font-size: 0.9rem;">&copy; 2026 Ayush Studio. All rights
-                reserved.</p>
-        </div>
-    </section>
-
-    </div> <!-- Close smooth-content -->
+        </div> <!-- Close smooth-content -->
     </div> <!-- Close smooth-wrapper -->
 
     <!-- Floating Cart Widget -->
@@ -1413,6 +1420,18 @@
 
         // Filter services based on category selection
         function filterServices(category) {
+            // Change hero background image based on category
+            const heroSection = document.querySelector('.services-hero');
+            if (category === 'music') {
+                heroSection.style.background = "linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(198, 60, 81, 0.3)), url('images/studio.png')";
+                heroSection.style.backgroundSize = "cover";
+                heroSection.style.backgroundPosition = "center";
+            } else if (category === 'video') {
+                heroSection.style.background = "linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(198, 60, 81, 0.3)), url('images/Camera (2).png')";
+                heroSection.style.backgroundSize = "cover";
+                heroSection.style.backgroundPosition = "center";
+            }
+
             // Update active tile
             document.querySelectorAll('.category-card').forEach(tile => {
                 tile.classList.remove('active');

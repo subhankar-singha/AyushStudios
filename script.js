@@ -57,7 +57,6 @@ window.addEventListener("load", () => {
         "भावना!",      // Hindi
         "অনুভূতি!",    // Bengali
         "వికారం!",     // Malayalam
-        "உணர்ச்சி!",    // Tamil
         "భావన!",      // Telugu
         "جذبات",
         "ਭਾਵਨਾ",
@@ -105,7 +104,7 @@ window.addEventListener("load", () => {
 
   // ✅ Scroll-triggered items (cards, projects, forms, steps)
   // Added .plan-card, .step, .contact-form to the list
-  gsap.utils.toArray(".service, .project, .contact-form, .plan-card, .step").forEach((item) => {
+  gsap.utils.toArray(".service, .project-item, .contact-form, .plan-card, .step").forEach((item) => {
     gsap.from(item, {
       scrollTrigger: { trigger: item, start: "top 85%" },
       y: 50,
@@ -118,7 +117,7 @@ window.addEventListener("load", () => {
   // ✅ Work Page: Search & Filter Logic
   const searchInput = document.getElementById("work-search");
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const workItems = document.querySelectorAll(".project");
+  const workItems = document.querySelectorAll(".project-item");
 
   if (searchInput && workItems.length > 0) {
 

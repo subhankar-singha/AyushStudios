@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Ayush Studio</title>
+    <title>Contact — Ayush Studio | Premium Creative Agency</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -15,153 +17,409 @@
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Icon Styles -->
     <style>
-        .fa-instagram {
-            font-size: 30px;
-
+        /* Modern Premium Redesign Styles */
+        :root {
+            --primary: #C63C51;
+            --primary-hover: #a82f42;
+            --dark: #111111;
+            --gray-light: #f7f7f7;
+            --gray-mid: #e5e5e5;
+            --text-muted: #666666;
+            --text-light: #999999;
+            --bg-white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .fa-youtube {
-            font-size: 30px;
-
+        body {
+            font-family: "General Sans", sans-serif;
+            background-color: var(--bg-white);
+            color: var(--dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .fa-facebook {
-            font-size: 30px;
-
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 500;
+            margin: 0;
+            letter-spacing: -0.02em;
         }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(198, 60, 81, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark);
+            border: 1px solid var(--gray-mid);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gray-light);
+            border-color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .premium-hero {
+            padding: 220px 5% 120px;
+            background-color: var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .premium-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--dark);
+        }
+
+        .premium-hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .service-section {
+            padding: 120px 5%;
+            background-color: var(--bg-white);
+        }
+
+        .service-section.bg-light {
+            background-color: var(--gray-light);
+        }
+
+        .contact-grid-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        .form-column h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-mid);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--dark);
+            background: var(--gray-light);
+            transition: var(--transition);
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--dark);
+            background: var(--bg-white);
+        }
+
+        .info-column {
+            position: sticky;
+            top: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-mid);
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-link {
+            font-size: 1.2rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+        }
+
+        .site-footer {
+            background-color: var(--bg-white);
+            padding: 4rem 5%;
+            border-top: 1px solid var(--gray-mid);
+            text-align: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-socials a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .site-footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .info-column {
+                position: static;
+            }
+        }
+    
+        /* Unified Typography & Design System */
+        .section-title {
+            font-family: "Space Grotesk", sans-serif !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.02em !important;
+            font-size: clamp(2rem, 4vw, 3rem) !important;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: "Space Grotesk", sans-serif !important;
+            letter-spacing: -0.02em !important;
+        }
+        
+        p {
+            font-family: "General Sans", sans-serif !important;
+            line-height: 1.6 !important;
+        }
+        
+        .nav-links a {
+            font-family: "General Sans", sans-serif !important;
+            font-weight: 500 !important;
+        }
+        
+        .btn {
+            font-family: "General Sans", sans-serif !important;
+            font-weight: 500 !important;
+        }
+        
+        section {
+            padding: 100px 5% !important;
+        }
+        
+        .premium-hero {
+            padding: 220px 5% 120px !important;
+        }
+        
+        .works-hero {
+            padding: 200px 5% 100px !important;
+        }
+
+        .service:hover, .premium-card:hover, .philosophy-item:hover, .plan-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05) !important;
+        }
+
     </style>
-
 </head>
 
 <body>
-    <div id="smooth-wrapper">
-        <div id="smooth-content">
-            <!-- 🌐 Navigation -->
-            <nav class="navbar">
-                <div class="container nav-container">
-                    <div class="brand">LOGO</div>
-                    <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="work.html">Works</a></li>
-                        <li><a href="./html_files/studio.html">About Us</a></li>
-                        <li><a href="contact.html" class="active">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- 🦋 Hero Section -->
-            <section class="hero" style="height: 50vh;">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="word">Let's</span>
-                        <span class="word accent">Talk</span>
-                    </h1>
-                    <p class="hero-sub">Ready to start your project? Get in touch with us.</p>
-                </div>
-            </section>
-
-            <!-- 📞 Contact Section -->
-            <section class="contact-form-section" style="padding: 50px 0 100px; background: #fff;">
-                <div class="container contact-grid-layout">
-
-                    <!-- Form Column -->
-                    <div class="form-column">
-                        <h2 style="margin-bottom: 2rem;">Send a Message</h2>
-                        <form class="contact-form">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="project-type">Project Type</label>
-                                <select id="project-type" name="project-type"
-                                    style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; background: #fff;">
-                                    <option value="" disabled selected>Select an option</option>
-                                    <option value="music">Music Production</option>
-                                    <option value="video">Video Production</option>
-                                    <option value="academy">Academy / Course</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="6"
-                                    placeholder="Tell us about your project..." required></textarea>
-                            </div>
-                            <button type="submit" class="cta-btn"
-                                style="border: none; cursor: pointer; font-size: 1rem;">Send Message</button>
-                        </form>
-                    </div>
-
-                    <!-- Direct Contact Column -->
-                    <div class="info-column">
-                        <div class="info-box">
-                            <h3>Direct Contact</h3>
-                            <p style="margin-bottom: 1.5rem; color: #555;">Prefer to chat directly? Reach out to us via
-                                email or WhatsApp.</p>
-
-                            <div class="contact-item">
-                                <h4>Email</h4>
-                                <a href="mailto:ayush.studio@gmail.com" class="contact-link">ayush.studio@gmail.com</a>
-                            </div>
-
-                            <div class="contact-item" style="margin-top: 2rem;">
-                                <h4>WhatsApp</h4>
-                                <a href="#" class="btn-whatsapp"
-                                    style="display: inline-block; width: auto; padding: 0.8rem 2rem;">Chat on
-                                    WhatsApp</a>
-                            </div>
-                        </div>
-
-                        <div class="info-box" style="margin-top: 2rem;">
-                            <h3>Studio Address</h3>
-                            <p style="color: #555; line-height: 1.6;">
-                                Dinhata, Cooch Behar
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <section class="contact" style="padding-bottom: 50px; padding-top: 50px;">
-                <div class="container contact-inner">
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw=="
-                            target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
-                                class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
-                                class="fa-brands fa-facebook"></i></a>
-                    </div>
-                    <p style="margin-top: 20px; color: #555; font-size: 0.9rem;">&copy; 2026 Ayush Studio. All rights
-                        reserved.</p>
-                </div>
-            </section>
-
+    <!-- 🌐 Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="brand">LOGO</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="work.html">Works</a></li>
+                <li><a href="./html_files/studio.html">About Us</a></li>
+                <li><a href="contact.html" class="active" style="color: #C63C51;">Contact</a></li>
+            </ul>
         </div>
-    </div>
-    <!--Smooth scrolling-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
-        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
-        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollSmoother.min.js"
-        integrity="sha512-t4hwZimhnCKT3YLAsEcAcRDkngVFfCcUIfNLIjklrIZAZKD+GfQMP7HbRcsVHxNS48WRBSywNU1uSM2zzLQt1Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </nav>
 
-    <!-- ⚙️ Script -->
-    <script src="script.js"></script>
+    <!-- 🦋 Hero Section -->
+    <header class="premium-hero">
+        <h1>Let's Talk</h1>
+        <p>Ready to start your project? Get in touch with us directly or drop us a message.</p>
+    </header>
+
+    <!-- 📞 Contact Section -->
+    <section class="service-section">
+        <div class="contact-grid-layout">
+            <!-- Form Column -->
+            <div class="form-column">
+                <h2>Send a Message</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-type">Project Type</label>
+                        <select id="project-type" name="project-type" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="music">Music Production</option>
+                            <option value="video">Video Production</option>
+                            <option value="academy">Academy / Course</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..."
+                            required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Direct Contact Column -->
+            <div class="info-column">
+                <div class="info-box">
+                    <h3>Direct Contact</h3>
+                    <p>Prefer to chat directly? Reach out to us via email or WhatsApp for a faster response.</p>
+
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <a href="mailto:ayush.studio@gmail.com" class="contact-link">ayush.studio@gmail.com</a>
+                    </div>
+
+                    <div class="contact-item" style="margin-top: 1.5rem;">
+                        <h4>WhatsApp</h4>
+                        <a href="#" class="btn btn-secondary"
+                            style="width: 100%; justify-content: center; gap: 0.5rem; margin-top: 0.5rem;"><i
+                                class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Studio Address</h3>
+                    <p>Dinhata, Cooch Behar<br>West Bengal, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/ayushpaulofficial7?igsh=MTcwdWk2cXE3MG0yaw==" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@ayushpaulofficial7/featured" target="_blank"><i
+                    class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/share/17NcjtAXnT/" target="_blank"><i
+                    class="fa-brands fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2026 Ayush Studios. All rights reserved. Crafted with intention.</p>
+    </footer>
 </body>
 
 </html>
